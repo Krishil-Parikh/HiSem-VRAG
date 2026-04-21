@@ -1,0 +1,14 @@
+fastapi
+uvicorn[standard]
+pydantic[email]
+python-multipart
+numpy
+torch
+tqdm
+sentence-transformers
+transformers
+whisperx
+opencv-python
+hdbscan
+scikit-learn
+Pillow
