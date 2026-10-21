@@ -1,0 +1,59 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the paper below."
+type: software
+title: "HiSem-VRAG: Hierarchical Semantic Retrieval for Long-Form Video Question Answering"
+abstract: >-
+  Code for VRAG, a hierarchical coarse-to-fine retrieval-augmented framework for
+  question answering over long-form instructional videos. Videos are organized as
+  Video, Topics, Scenes and Frames, and retrieval narrows the search space one level
+  at a time.
+authors:
+  - family-names: Parikh
+    given-names: Krishil
+    affiliation: "Dwarkadas J. Sanghvi College of Engineering, Mumbai, India"
+  - family-names: Maisheri
+    given-names: Krisha
+    affiliation: "Dwarkadas J. Sanghvi College of Engineering, Mumbai, India"
+  - family-names: Nisar
+    given-names: Keyush
+    affiliation: "Dwarkadas J. Sanghvi College of Engineering, Mumbai, India"
+  - family-names: Gawade
+    given-names: Aruna
+    affiliation: "Dwarkadas J. Sanghvi College of Engineering, Mumbai, India"
+  - family-names: Rathod
+    given-names: Nilesh
+    affiliation: "Dwarkadas J. Sanghvi College of Engineering, Mumbai, India"
+  - family-names: Florence
+    given-names: Angelin
+    affiliation: "Dwarkadas J. Sanghvi College of Engineering, Mumbai, India"
+  - family-names: Mishra
+    given-names: Ragini
+    affiliation: "Dwarkadas J. Sanghvi College of Engineering, Mumbai, India"
+repository-code: "https://github.com/Krishil-Parikh/HiSem-VRAG"
+license: MIT
+keywords:
+  - video RAG
+  - retrieval-augmented generation
+  - long-form video understanding
+  - video question answering
+  - hierarchical retrieval
+preferred-citation:
+  type: unpublished
+  title: "Hierarchical Semantic Retrieval for Long-Form Video Question Answering"
+  authors:
+    - family-names: Parikh
+      given-names: Krishil
+    - family-names: Maisheri
+      given-names: Krisha
+    - family-names: Nisar
+      given-names: Keyush
+    - family-names: Gawade
+      given-names: Aruna
+    - family-names: Rathod
+      given-names: Nilesh
+    - family-names: Florence
+      given-names: Angelin
+    - family-names: Mishra
+      given-names: Ragini
+  year: 2026
+  notes: "Manuscript under review"

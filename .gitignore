@@ -15,6 +15,7 @@
 !docs/**
 !README.md
 !LICENSE
+!CITATION.cff
 
 # Python virtual environments and caches inside backend
 backend/venv/
