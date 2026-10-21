@@ -127,6 +127,26 @@ Notes:
 
 After phase 5.0 you have a complete memory store: one folder per video under `video_memory/` plus the global topic index.
 
+**Expected folder layout** after running phases 1.1 to 5.0 (inside `Implementation/`):
+
+```
+raw_full_videos/            <video_id>.mp4
+audio_full_wav/             <video_id>.wav
+asr_transcripts_json/       <video_id>.json
+chunked_transcripts_json/   <video_id>.json
+transcript_embeddings/      <video_id>.npy
+topics_json/                <video_id>.json
+frames/                     <video_id>/ ... frames_manifest.json and one folder per topic
+frame_embeddings/           <video_id>.npy
+scenes_json/                <video_id>.json
+video_memory/
+  <video_id>/               video_memory.json, topics.json, scenes.json, frame_embeddings.npy, ...
+  global_topic_index.faiss
+  global_topic_metadata.json
+```
+
+If a later phase reports a missing file, compare this layout with what is on disk to find the phase that did not finish. Video counts generally fall from one stage to the next as items are filtered out. For reference, the paper's funnel goes 596 unique videos, 520 transcribed, 460 chunked and 463 in the final memory store.
+
 ---
 
 ## 6. Online retrieval, evaluation and ablations
