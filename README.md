@@ -399,6 +399,12 @@ Future directions: cross-domain evaluation, joint audio-visual topic segmentatio
 
 ## 9. Citation and license
 
+### Authors and contributions
+
+The system was developed collaboratively by all of the authors listed at the top of this page, including much of the pipeline design, experiments and analysis, before this repository was created. The Git history in this repository therefore starts late and does not reflect each author's contribution. The author list is the authoritative record of authorship.
+
+### Citation
+
 If you use this work, please cite the paper (the entry will be updated once it is published):
 
 ```bibtex
