@@ -1,0 +1,152 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 540" width="1000" height="540" role="img" aria-labelledby="t d">
+<title id="t">Keyframe selection using semantic similarity and temporal smoothing</title>
+<desc id="d">Animated pipeline: frame embeddings are scored against the query, the score sequence is Gaussian-smoothed, and the top-K frames are chosen as key frames. The plotted curve is illustrative.</desc>
+<style>text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;fill:#24292f}.m{fill:#57606a}.b{font-weight:600}</style>
+<rect x="0.5" y="0.5" width="999" height="539" rx="12" fill="#ffffff" stroke="#d8dee4"/>
+<g opacity="0">
+<animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.01;0.04;0.94;0.98;1" dur="16s" repeatCount="indefinite" />
+<rect x="28" y="36" width="300" height="44" rx="9" fill="#f6f8fa" stroke="#2d3436" stroke-width="1.6"/>
+<text x="178" y="62.5" font-size="12.5" text-anchor="middle" font-weight="600" >Every scene</text>
+</g>
+<g opacity="0">
+<animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.07;0.1;0.94;0.98;1" dur="16s" repeatCount="indefinite" />
+<rect x="28" y="92" width="300" height="44" rx="9" fill="#f6f8fa" stroke="#2d3436" stroke-width="1.6"/>
+<text x="178" y="111" font-size="12.5" text-anchor="middle" font-weight="600" >Frames {f1 ... fn}</text>
+<text x="178" y="127" font-size="10.5" text-anchor="middle" class="m" >1 FPS, time-stamped</text>
+</g>
+<g>
+<path d="M 178 80 L 178 92" fill="none" stroke="#636e72" stroke-width="1.8" stroke-dasharray="12" stroke-dashoffset="12">
+<animate attributeName="stroke-dashoffset" values="12;12;0;0;12;12" keyTimes="0;0.06;0.1;0.94;0.98;1" dur="16s" repeatCount="indefinite" />
+</path>
+<polygon points="178,92 174.09,83.9 181.91,83.9" fill="#636e72" opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.09;0.1;0.94;0.98;1" dur="16s" repeatCount="indefinite" /></polygon>
+</g>
+<g opacity="0">
+<animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.12;0.16;0.94;0.98;1" dur="16s" repeatCount="indefinite" />
+<rect x="28" y="148" width="300" height="44" rx="9" fill="#f6f8fa" stroke="#2d3436" stroke-width="1.6"/>
+<text x="178" y="167" font-size="12.5" text-anchor="middle" font-weight="600" >Visual embeddings {v1 ... vn}</text>
+<text x="178" y="183" font-size="10.5" text-anchor="middle" class="m" >SigLIP, query q re-encoded</text>
+</g>
+<g>
+<path d="M 178 136 L 178 148" fill="none" stroke="#636e72" stroke-width="1.8" stroke-dasharray="12" stroke-dashoffset="12">
+<animate attributeName="stroke-dashoffset" values="12;12;0;0;12;12" keyTimes="0;0.12;0.16;0.94;0.98;1" dur="16s" repeatCount="indefinite" />
+</path>
+<polygon points="178,148 174.09,139.9 181.91,139.9" fill="#636e72" opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.14;0.16;0.94;0.98;1" dur="16s" repeatCount="indefinite" /></polygon>
+</g>
+<g opacity="0">
+<animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.19;0.22;0.94;0.98;1" dur="16s" repeatCount="indefinite" />
+<rect x="28" y="204" width="300" height="44" rx="9" fill="#ddf4ff" stroke="#0969da" stroke-width="1.6"/>
+<text x="178" y="223" font-size="12.5" text-anchor="middle" font-weight="600" >Score  s_i = cos(q, v_i)</text>
+<text x="178" y="239" font-size="10.5" text-anchor="middle" class="m" >per-frame similarity</text>
+</g>
+<g>
+<path d="M 178 192 L 178 204" fill="none" stroke="#636e72" stroke-width="1.8" stroke-dasharray="12" stroke-dashoffset="12">
+<animate attributeName="stroke-dashoffset" values="12;12;0;0;12;12" keyTimes="0;0.18;0.22;0.94;0.98;1" dur="16s" repeatCount="indefinite" />
+</path>
+<polygon points="178,204 174.09,195.9 181.91,195.9" fill="#636e72" opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.21;0.22;0.94;0.98;1" dur="16s" repeatCount="indefinite" /></polygon>
+</g>
+<g opacity="0">
+<animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.35;0.38;0.94;0.98;1" dur="16s" repeatCount="indefinite" />
+<rect x="28" y="260" width="300" height="44" rx="9" fill="#ddf4ff" stroke="#0969da" stroke-width="1.6"/>
+<text x="178" y="279" font-size="12.5" text-anchor="middle" font-weight="600" >Temporal smoothing</text>
+<text x="178" y="295" font-size="10.5" text-anchor="middle" class="m" >Gaussian, sigma = 1.5</text>
+</g>
+<g>
+<path d="M 178 248 L 178 260" fill="none" stroke="#636e72" stroke-width="1.8" stroke-dasharray="12" stroke-dashoffset="12">
+<animate attributeName="stroke-dashoffset" values="12;12;0;0;12;12" keyTimes="0;0.34;0.38;0.94;0.98;1" dur="16s" repeatCount="indefinite" />
+</path>
+<polygon points="178,260 174.09,251.9 181.91,251.9" fill="#636e72" opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.37;0.38;0.94;0.98;1" dur="16s" repeatCount="indefinite" /></polygon>
+</g>
+<g opacity="0">
+<animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.51;0.54;0.94;0.98;1" dur="16s" repeatCount="indefinite" />
+<rect x="28" y="316" width="300" height="44" rx="9" fill="#ddf4ff" stroke="#0969da" stroke-width="1.6"/>
+<text x="178" y="335" font-size="12.5" text-anchor="middle" font-weight="600" >Top-K frames</text>
+<text x="178" y="351" font-size="10.5" text-anchor="middle" class="m" >K = 2 per scene</text>
+</g>
+<g>
+<path d="M 178 304 L 178 316" fill="none" stroke="#636e72" stroke-width="1.8" stroke-dasharray="12" stroke-dashoffset="12">
+<animate attributeName="stroke-dashoffset" values="12;12;0;0;12;12" keyTimes="0;0.51;0.54;0.94;0.98;1" dur="16s" repeatCount="indefinite" />
+</path>
+<polygon points="178,316 174.09,307.9 181.91,307.9" fill="#636e72" opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.53;0.54;0.94;0.98;1" dur="16s" repeatCount="indefinite" /></polygon>
+</g>
+<g opacity="0">
+<animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.6;0.63;0.94;0.98;1" dur="16s" repeatCount="indefinite" />
+<rect x="28" y="372" width="300" height="44" rx="9" fill="#f6f8fa" stroke="#2d3436" stroke-width="1.6"/>
+<text x="178" y="391" font-size="12.5" text-anchor="middle" font-weight="600" >Key frames selected</text>
+<text x="178" y="407" font-size="10.5" text-anchor="middle" class="m" >onset + completion of the action</text>
+</g>
+<g>
+<path d="M 178 360 L 178 372" fill="none" stroke="#636e72" stroke-width="1.8" stroke-dasharray="12" stroke-dashoffset="12">
+<animate attributeName="stroke-dashoffset" values="12;12;0;0;12;12" keyTimes="0;0.59;0.63;0.94;0.98;1" dur="16s" repeatCount="indefinite" />
+</path>
+<polygon points="178,372 174.09,363.9 181.91,363.9" fill="#636e72" opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.62;0.63;0.94;0.98;1" dur="16s" repeatCount="indefinite" /></polygon>
+</g>
+<g opacity="0">
+<animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.68;0.71;0.94;0.98;1" dur="16s" repeatCount="indefinite" />
+<rect x="28" y="428" width="300" height="44" rx="9" fill="#f6f8fa" stroke="#2d3436" stroke-width="1.6"/>
+<text x="178" y="447" font-size="12.5" text-anchor="middle" font-weight="600" >VLM description</text>
+<text x="178" y="463" font-size="10.5" text-anchor="middle" class="m" >d_i = VLM(f_i)</text>
+</g>
+<g>
+<path d="M 178 416 L 178 428" fill="none" stroke="#636e72" stroke-width="1.8" stroke-dasharray="12" stroke-dashoffset="12">
+<animate attributeName="stroke-dashoffset" values="12;12;0;0;12;12" keyTimes="0;0.67;0.71;0.94;0.98;1" dur="16s" repeatCount="indefinite" />
+</path>
+<polygon points="178,428 174.09,419.9 181.91,419.9" fill="#636e72" opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.69;0.71;0.94;0.98;1" dur="16s" repeatCount="indefinite" /></polygon>
+</g>
+<g opacity="0">
+<animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.74;0.77;0.94;0.98;1" dur="16s" repeatCount="indefinite" />
+<rect x="28" y="484" width="300" height="44" rx="9" fill="#f6f8fa" stroke="#2d3436" stroke-width="1.6"/>
+<text x="178" y="503" font-size="12.5" text-anchor="middle" font-weight="600" >Evidence fusion</text>
+<text x="178" y="519" font-size="10.5" text-anchor="middle" class="m" >-&gt; fused evidence</text>
+</g>
+<g>
+<path d="M 178 472 L 178 484" fill="none" stroke="#636e72" stroke-width="1.8" stroke-dasharray="12" stroke-dashoffset="12">
+<animate attributeName="stroke-dashoffset" values="12;12;0;0;12;12" keyTimes="0;0.73;0.77;0.94;0.98;1" dur="16s" repeatCount="indefinite" />
+</path>
+<polygon points="178,484 174.09,475.9 181.91,475.9" fill="#636e72" opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.76;0.77;0.94;0.98;1" dur="16s" repeatCount="indefinite" /></polygon>
+</g>
+<rect x="372" y="28" width="604" height="480" rx="10" fill="#fbfcfd" stroke="#d8dee4"/>
+<text x="674" y="52" font-size="12.5" text-anchor="middle" font-weight="600" >Frame similarity to the query within one scene (illustrative)</text>
+<line x1="400" y1="440" x2="960" y2="440" stroke="#24292f" stroke-width="1.4"/>
+<line x1="400" y1="70" x2="400" y2="440" stroke="#24292f" stroke-width="1.4"/>
+<text x="680" y="474" font-size="12" text-anchor="middle" class="m" >frame index (time)</text>
+<text transform="translate(378 255) rotate(-90)" font-size="12" text-anchor="middle" class="m">cosine similarity</text>
+<path d="M 400 332.5 L 419.31 308.8 L 438.62 411.03 L 457.93 315.48 L 477.24 331.28 L 496.55 337.24 L 515.86 301.6 L 535.17 217.01 L 554.48 237.41 L 573.79 234.11 L 593.1 143.02 L 612.41 318.67 L 631.72 282.31 L 651.03 266.37 L 670.34 410.21 L 689.66 303.46 L 708.97 327.08 L 728.28 351.07 L 747.59 290.77 L 766.9 243.04 L 786.21 238.54 L 805.52 223.33 L 824.83 118.11 L 844.14 250.57 L 863.45 227.57 L 882.76 198.83 L 902.07 377.48 L 921.38 283.43 L 940.69 320.75 L 960 389.36" fill="none" stroke="#8c959f" stroke-width="1.4" stroke-linejoin="round" stroke-dasharray="1956.87" stroke-dashoffset="1956.87">
+<animate attributeName="stroke-dashoffset" values="1956.87;1956.87;0;0;1956.87;1956.87" keyTimes="0;0.19;0.34;0.94;0.98;1" dur="16s" repeatCount="indefinite" />
+</path>
+<circle cx="400" cy="332.5" r="2.6" fill="#8c959f" opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.19;0.2;0.94;0.98;1" dur="16s" repeatCount="indefinite" /></circle>
+<circle cx="419.31" cy="308.8" r="2.6" fill="#8c959f" opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.2;0.21;0.94;0.98;1" dur="16s" repeatCount="indefinite" /></circle>
+<circle cx="438.62" cy="411.03" r="2.6" fill="#8c959f" opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.2;0.21;0.94;0.98;1" dur="16s" repeatCount="indefinite" /></circle>
+<circle cx="457.93" cy="315.48" r="2.6" fill="#8c959f" opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.21;0.22;0.94;0.98;1" dur="16s" repeatCount="indefinite" /></circle>
+<circle cx="477.24" cy="331.28" r="2.6" fill="#8c959f" opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.21;0.22;0.94;0.98;1" dur="16s" repeatCount="indefinite" /></circle>
+<circle cx="496.55" cy="337.24" r="2.6" fill="#8c959f" opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.22;0.23;0.94;0.98;1" dur="16s" repeatCount="indefinite" /></circle>
+<circle cx="515.86" cy="301.6" r="2.6" fill="#8c959f" opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.22;0.23;0.94;0.98;1" dur="16s" repeatCount="indefinite" /></circle>
+<circle cx="535.17" cy="217.01" r="2.6" fill="#8c959f" opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.23;0.24;0.94;0.98;1" dur="16s" repeatCount="indefinite" /></circle>
+<circle cx="554.48" cy="237.41" r="2.6" fill="#8c959f" opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.23;0.24;0.94;0.98;1" dur="16s" repeatCount="indefinite" /></circle>
+<circle cx="573.79" cy="234.11" r="2.6" fill="#8c959f" opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.24;0.25;0.94;0.98;1" dur="16s" repeatCount="indefinite" /></circle>
+<circle cx="593.1" cy="143.02" r="2.6" fill="#8c959f" opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.24;0.25;0.94;0.98;1" dur="16s" repeatCount="indefinite" /></circle>
+<circle cx="612.41" cy="318.67" r="2.6" fill="#8c959f" opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.25;0.26;0.94;0.98;1" dur="16s" repeatCount="indefinite" /></circle>
+<circle cx="631.72" cy="282.31" r="2.6" fill="#8c959f" opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.25;0.26;0.94;0.98;1" dur="16s" repeatCount="indefinite" /></circle>
+<circle cx="651.03" cy="266.37" r="2.6" fill="#8c959f" opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.26;0.27;0.94;0.98;1" dur="16s" repeatCount="indefinite" /></circle>
+<circle cx="670.34" cy="410.21" r="2.6" fill="#8c959f" opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.26;0.27;0.94;0.98;1" dur="16s" repeatCount="indefinite" /></circle>
+<circle cx="689.66" cy="303.46" r="2.6" fill="#8c959f" opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.27;0.28;0.94;0.98;1" dur="16s" repeatCount="indefinite" /></circle>
+<circle cx="708.97" cy="327.08" r="2.6" fill="#8c959f" opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.27;0.28;0.94;0.98;1" dur="16s" repeatCount="indefinite" /></circle>
+<circle cx="728.28" cy="351.07" r="2.6" fill="#8c959f" opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.28;0.29;0.94;0.98;1" dur="16s" repeatCount="indefinite" /></circle>
+<circle cx="747.59" cy="290.77" r="2.6" fill="#8c959f" opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.28;0.29;0.94;0.98;1" dur="16s" repeatCount="indefinite" /></circle>
+<circle cx="766.9" cy="243.04" r="2.6" fill="#8c959f" opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.29;0.3;0.94;0.98;1" dur="16s" repeatCount="indefinite" /></circle>
+<circle cx="786.21" cy="238.54" r="2.6" fill="#8c959f" opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.29;0.3;0.94;0.98;1" dur="16s" repeatCount="indefinite" /></circle>
+<circle cx="805.52" cy="223.33" r="2.6" fill="#8c959f" opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.3;0.31;0.94;0.98;1" dur="16s" repeatCount="indefinite" /></circle>
+<circle cx="824.83" cy="118.11" r="2.6" fill="#8c959f" opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.3;0.31;0.94;0.98;1" dur="16s" repeatCount="indefinite" /></circle>
+<circle cx="844.14" cy="250.57" r="2.6" fill="#8c959f" opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.31;0.32;0.94;0.98;1" dur="16s" repeatCount="indefinite" /></circle>
+<circle cx="863.45" cy="227.57" r="2.6" fill="#8c959f" opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.31;0.32;0.94;0.98;1" dur="16s" repeatCount="indefinite" /></circle>
+<circle cx="882.76" cy="198.83" r="2.6" fill="#8c959f" opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.32;0.33;0.94;0.98;1" dur="16s" repeatCount="indefinite" /></circle>
+<circle cx="902.07" cy="377.48" r="2.6" fill="#8c959f" opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.32;0.33;0.94;0.98;1" dur="16s" repeatCount="indefinite" /></circle>
+<circle cx="921.38" cy="283.43" r="2.6" fill="#8c959f" opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.33;0.34;0.94;0.98;1" dur="16s" repeatCount="indefinite" /></circle>
+<circle cx="940.69" cy="320.75" r="2.6" fill="#8c959f" opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.33;0.34;0.94;0.98;1" dur="16s" repeatCount="indefinite" /></circle>
+<circle cx="960" cy="389.36" r="2.6" fill="#8c959f" opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.34;0.35;0.94;0.98;1" dur="16s" repeatCount="indefinite" /></circle>
+<path d="M 400 335.42 L 419.31 341.02 L 438.62 344.4 L 457.93 340.28 L 477.24 328.93 L 496.55 310.71 L 515.86 285.12 L 535.17 257.63 L 554.48 236.74 L 573.79 228.26 L 593.1 236.1 L 612.41 258.02 L 631.72 284.44 L 651.03 308.32 L 670.34 325.04 L 689.66 330.58 L 708.97 325.94 L 728.28 312.25 L 747.59 289.26 L 766.9 261.11 L 786.21 233.9 L 805.52 212.92 L 824.83 204.97 L 844.14 213.26 L 863.45 233.6 L 882.76 261.27 L 902.07 290.63 L 921.38 316.04 L 940.69 339.01 L 960 361.12" fill="none" stroke="#0969da" stroke-width="3" stroke-linejoin="round" stroke-dasharray="782.39" stroke-dashoffset="782.39">
+<animate attributeName="stroke-dashoffset" values="782.39;782.39;0;0;782.39;782.39" keyTimes="0;0.36;0.49;0.94;0.98;1" dur="16s" repeatCount="indefinite" />
+</path>
+<g opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.53;0.55;0.94;0.98;1" dur="16s" repeatCount="indefinite" /><circle cx="573.79" cy="228.26" r="11" fill="none" stroke="#cf222e" stroke-width="2.4"/><circle cx="573.79" cy="228.26" r="4.5" fill="#cf222e"/><text x="573.79" y="210.26" font-size="12" text-anchor="middle" style="fill:#cf222e" font-weight="700" >key frame 1</text></g>
+<g opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.56;0.58;0.94;0.98;1" dur="16s" repeatCount="indefinite" /><circle cx="824.83" cy="204.97" r="11" fill="none" stroke="#cf222e" stroke-width="2.4"/><circle cx="824.83" cy="204.97" r="4.5" fill="#cf222e"/><text x="824.83" y="186.97" font-size="12" text-anchor="middle" style="fill:#cf222e" font-weight="700" >key frame 2</text></g>
+<g opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.19;0.23;0.94;0.98;1" dur="16s" repeatCount="indefinite" /><line x1="410" y1="496" x2="440" y2="496" stroke="#8c959f" stroke-width="1.6"/><text x="448" y="500" font-size="11.5" text-anchor="start" class="m" >raw scores</text><line x1="560" y1="496" x2="590" y2="496" stroke="#0969da" stroke-width="3"/><text x="598" y="500" font-size="11.5" text-anchor="start" class="m" >Gaussian-smoothed</text><circle cx="740" cy="496" r="5" fill="#cf222e"/><text x="752" y="500" font-size="11.5" text-anchor="start" class="m" >top-K selection</text></g>
+</svg>

@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 430" width="1000" height="430" role="img" aria-labelledby="t d">
+<title id="t">VRAG preprocessing pipeline data-flow funnel</title>
+<desc id="d">Animated bar chart of item counts at each preprocessing stage: 596, 599, 579, 597, 520, 460, 460, 460, 459, 463.</desc>
+<style>text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;fill:#24292f}.m{fill:#57606a}.b{font-weight:600}</style>
+<rect x="0.5" y="0.5" width="999" height="429" rx="12" fill="#ffffff" stroke="#d8dee4"/>
+<line x1="80" y1="330" x2="975" y2="330" stroke="#d8dee4" stroke-width="1"/>
+<text x="72" y="334" font-size="11" text-anchor="end" class="m" >0</text>
+<line x1="80" y1="288.46" x2="975" y2="288.46" stroke="#d8dee4" stroke-width="1"/>
+<text x="72" y="292.46" font-size="11" text-anchor="end" class="m" >100</text>
+<line x1="80" y1="246.92" x2="975" y2="246.92" stroke="#d8dee4" stroke-width="1"/>
+<text x="72" y="250.92" font-size="11" text-anchor="end" class="m" >200</text>
+<line x1="80" y1="205.38" x2="975" y2="205.38" stroke="#d8dee4" stroke-width="1"/>
+<text x="72" y="209.38" font-size="11" text-anchor="end" class="m" >300</text>
+<line x1="80" y1="163.85" x2="975" y2="163.85" stroke="#d8dee4" stroke-width="1"/>
+<text x="72" y="167.85" font-size="11" text-anchor="end" class="m" >400</text>
+<line x1="80" y1="122.31" x2="975" y2="122.31" stroke="#d8dee4" stroke-width="1"/>
+<text x="72" y="126.31" font-size="11" text-anchor="end" class="m" >500</text>
+<line x1="80" y1="80.77" x2="975" y2="80.77" stroke="#d8dee4" stroke-width="1"/>
+<text x="72" y="84.77" font-size="11" text-anchor="end" class="m" >600</text>
+<line x1="80" y1="330" x2="975" y2="330" stroke="#24292f" stroke-width="1.4"/>
+<line x1="80" y1="60" x2="80" y2="330" stroke="#24292f" stroke-width="1.4"/>
+<text transform="translate(38 195) rotate(-90)" font-size="12" text-anchor="middle" class="m">Number of items</text>
+<rect x="95.75" y="330" width="58" height="0" fill="#2d3436" stroke="#1b1f23" stroke-width="0.8" ><animate attributeName="height" values="0;0;247.57;247.57;0;0" keyTimes="0;0.03;0.08;0.94;0.98;1" dur="13s" repeatCount="indefinite" /><animate attributeName="y" values="330;330;82.43;82.43;330;330" keyTimes="0;0.03;0.08;0.94;0.98;1" dur="13s" repeatCount="indefinite" /></rect>
+<g opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.07;0.09;0.94;0.98;1" dur="13s" repeatCount="indefinite" /><text x="124.75" y="74.43" font-size="12.5" text-anchor="middle" font-weight="700" >596</text></g>
+<text x="124.75" y="350" font-size="11.5" text-anchor="middle" >YouCook2</text>
+<text x="124.75" y="365" font-size="10.5" text-anchor="middle" class="m" >unique videos</text>
+<rect x="185.25" y="330" width="58" height="0" fill="#636e72" stroke="#1b1f23" stroke-width="0.8" ><animate attributeName="height" values="0;0;248.82;248.82;0;0" keyTimes="0;0.08;0.14;0.94;0.98;1" dur="13s" repeatCount="indefinite" /><animate attributeName="y" values="330;330;81.18;81.18;330;330" keyTimes="0;0.08;0.14;0.94;0.98;1" dur="13s" repeatCount="indefinite" /></rect>
+<g opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.12;0.15;0.94;0.98;1" dur="13s" repeatCount="indefinite" /><text x="214.25" y="73.18" font-size="12.5" text-anchor="middle" font-weight="700" >599</text></g>
+<text x="214.25" y="350" font-size="11.5" text-anchor="middle" >Downloaded</text>
+<text x="214.25" y="365" font-size="10.5" text-anchor="middle" class="m" >MP4</text>
+<rect x="274.75" y="330" width="58" height="0" fill="#2d3436" stroke="#1b1f23" stroke-width="0.8" ><animate attributeName="height" values="0;0;240.51;240.51;0;0" keyTimes="0;0.14;0.19;0.94;0.98;1" dur="13s" repeatCount="indefinite" /><animate attributeName="y" values="330;330;89.49;89.49;330;330" keyTimes="0;0.14;0.19;0.94;0.98;1" dur="13s" repeatCount="indefinite" /></rect>
+<g opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.18;0.2;0.94;0.98;1" dur="13s" repeatCount="indefinite" /><text x="303.75" y="81.49" font-size="12.5" text-anchor="middle" font-weight="700" >579</text></g>
+<text x="303.75" y="350" font-size="11.5" text-anchor="middle" >Valid videos</text>
+<text x="303.75" y="365" font-size="10.5" text-anchor="middle" class="m" >&gt;500 KB</text>
+<rect x="364.25" y="330" width="58" height="0" fill="#636e72" stroke="#1b1f23" stroke-width="0.8" ><animate attributeName="height" values="0;0;247.98;247.98;0;0" keyTimes="0;0.19;0.25;0.94;0.98;1" dur="13s" repeatCount="indefinite" /><animate attributeName="y" values="330;330;82.02;82.02;330;330" keyTimes="0;0.19;0.25;0.94;0.98;1" dur="13s" repeatCount="indefinite" /></rect>
+<g opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.23;0.25;0.94;0.98;1" dur="13s" repeatCount="indefinite" /><text x="393.25" y="74.02" font-size="12.5" text-anchor="middle" font-weight="700" >597</text></g>
+<text x="393.25" y="350" font-size="11.5" text-anchor="middle" >Audio WAV</text>
+<text x="393.25" y="365" font-size="10.5" text-anchor="middle" class="m" >16 kHz</text>
+<rect x="453.75" y="330" width="58" height="0" fill="#2d3436" stroke="#1b1f23" stroke-width="0.8" ><animate attributeName="height" values="0;0;216;216;0;0" keyTimes="0;0.25;0.3;0.94;0.98;1" dur="13s" repeatCount="indefinite" /><animate attributeName="y" values="330;330;114;114;330;330" keyTimes="0;0.25;0.3;0.94;0.98;1" dur="13s" repeatCount="indefinite" /></rect>
+<g opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.28;0.31;0.94;0.98;1" dur="13s" repeatCount="indefinite" /><text x="482.75" y="106" font-size="12.5" text-anchor="middle" font-weight="700" >520</text></g>
+<text x="482.75" y="350" font-size="11.5" text-anchor="middle" >ASR</text>
+<text x="482.75" y="365" font-size="10.5" text-anchor="middle" class="m" >transcripts</text>
+<rect x="543.25" y="330" width="58" height="0" fill="#636e72" stroke="#1b1f23" stroke-width="0.8" ><animate attributeName="height" values="0;0;191.08;191.08;0;0" keyTimes="0;0.3;0.35;0.94;0.98;1" dur="13s" repeatCount="indefinite" /><animate attributeName="y" values="330;330;138.92;138.92;330;330" keyTimes="0;0.3;0.35;0.94;0.98;1" dur="13s" repeatCount="indefinite" /></rect>
+<g opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.34;0.36;0.94;0.98;1" dur="13s" repeatCount="indefinite" /><text x="572.25" y="130.92" font-size="12.5" text-anchor="middle" font-weight="700" >460</text></g>
+<text x="572.25" y="350" font-size="11.5" text-anchor="middle" >Chunked</text>
+<text x="572.25" y="365" font-size="10.5" text-anchor="middle" class="m" >transcripts</text>
+<rect x="632.75" y="330" width="58" height="0" fill="#2d3436" stroke="#1b1f23" stroke-width="0.8" ><animate attributeName="height" values="0;0;191.08;191.08;0;0" keyTimes="0;0.35;0.41;0.94;0.98;1" dur="13s" repeatCount="indefinite" /><animate attributeName="y" values="330;330;138.92;138.92;330;330" keyTimes="0;0.35;0.41;0.94;0.98;1" dur="13s" repeatCount="indefinite" /></rect>
+<g opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.39;0.42;0.94;0.98;1" dur="13s" repeatCount="indefinite" /><text x="661.75" y="130.92" font-size="12.5" text-anchor="middle" font-weight="700" >460</text></g>
+<text x="661.75" y="350" font-size="11.5" text-anchor="middle" >Topic</text>
+<text x="661.75" y="365" font-size="10.5" text-anchor="middle" class="m" >segments</text>
+<rect x="722.25" y="330" width="58" height="0" fill="#636e72" stroke="#1b1f23" stroke-width="0.8" ><animate attributeName="height" values="0;0;191.08;191.08;0;0" keyTimes="0;0.41;0.46;0.94;0.98;1" dur="13s" repeatCount="indefinite" /><animate attributeName="y" values="330;330;138.92;138.92;330;330" keyTimes="0;0.41;0.46;0.94;0.98;1" dur="13s" repeatCount="indefinite" /></rect>
+<g opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.45;0.47;0.94;0.98;1" dur="13s" repeatCount="indefinite" /><text x="751.25" y="130.92" font-size="12.5" text-anchor="middle" font-weight="700" >460</text></g>
+<text x="751.25" y="350" font-size="11.5" text-anchor="middle" >Extracted</text>
+<text x="751.25" y="365" font-size="10.5" text-anchor="middle" class="m" >frames</text>
+<rect x="811.75" y="330" width="58" height="0" fill="#2d3436" stroke="#1b1f23" stroke-width="0.8" ><animate attributeName="height" values="0;0;190.66;190.66;0;0" keyTimes="0;0.46;0.52;0.94;0.98;1" dur="13s" repeatCount="indefinite" /><animate attributeName="y" values="330;330;139.34;139.34;330;330" keyTimes="0;0.46;0.52;0.94;0.98;1" dur="13s" repeatCount="indefinite" /></rect>
+<g opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.5;0.52;0.94;0.98;1" dur="13s" repeatCount="indefinite" /><text x="840.75" y="131.34" font-size="12.5" text-anchor="middle" font-weight="700" >459</text></g>
+<text x="840.75" y="350" font-size="11.5" text-anchor="middle" >Scene</text>
+<text x="840.75" y="365" font-size="10.5" text-anchor="middle" class="m" >clusters</text>
+<rect x="901.25" y="330" width="58" height="0" fill="#636e72" stroke="#1b1f23" stroke-width="0.8" ><animate attributeName="height" values="0;0;192.32;192.32;0;0" keyTimes="0;0.52;0.57;0.94;0.98;1" dur="13s" repeatCount="indefinite" /><animate attributeName="y" values="330;330;137.68;137.68;330;330" keyTimes="0;0.52;0.57;0.94;0.98;1" dur="13s" repeatCount="indefinite" /></rect>
+<g opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.55;0.58;0.94;0.98;1" dur="13s" repeatCount="indefinite" /><text x="930.25" y="129.68" font-size="12.5" text-anchor="middle" font-weight="700" >463</text></g>
+<text x="930.25" y="350" font-size="11.5" text-anchor="middle" >Memory</text>
+<text x="930.25" y="365" font-size="10.5" text-anchor="middle" class="m" >store</text>
+<text x="500" y="396" font-size="13" text-anchor="middle" style="fill:#0969da" font-weight="600" >596 downloaded videos -&gt; 463 usable hierarchical memories (77.7% retention)</text>
+</svg>

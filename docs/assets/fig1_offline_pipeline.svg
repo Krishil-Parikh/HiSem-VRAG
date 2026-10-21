@@ -1,0 +1,218 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1180 410" width="1180" height="410" role="img" aria-labelledby="t d">
+<title id="t">Offline video processing and hierarchical indexing pipeline</title>
+<desc id="d">Animated flow: an input video is split into an audio stream (ASR, chunking, text embeddings, topic segmentation) and a visual stream (frame extraction, visual encoder, frame embeddings, scene clustering); both feed a hierarchical memory store and a global FAISS index.</desc>
+<style>text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;fill:#24292f}.m{fill:#57606a}.b{font-weight:600}</style>
+<rect x="0.5" y="0.5" width="1179" height="409" rx="12" fill="#ffffff" stroke="#d8dee4"/>
+<rect x="138" y="48" width="808" height="100" rx="12" fill="none" stroke="#1a7f37" stroke-width="1.4" stroke-dasharray="6 5" opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.01;0.06;0.94;0.98;1" dur="14s" repeatCount="indefinite" /></rect>
+<g opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.01;0.06;0.94;0.98;1" dur="14s" repeatCount="indefinite" /><text x="542" y="40" font-size="11.5" text-anchor="middle" style="fill:#1a7f37" font-weight="700" >AUDIO ANALYSIS PIPELINE</text></g>
+<rect x="138" y="262" width="808" height="100" rx="12" fill="none" stroke="#d1580d" stroke-width="1.4" stroke-dasharray="6 5" opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.01;0.06;0.94;0.98;1" dur="14s" repeatCount="indefinite" /></rect>
+<g opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.01;0.06;0.94;0.98;1" dur="14s" repeatCount="indefinite" /><text x="542" y="380" font-size="11.5" text-anchor="middle" style="fill:#d1580d" font-weight="700" >VISUAL ANALYSIS PIPELINE</text></g>
+<g opacity="0">
+<animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0;0.04;0.94;0.98;1" dur="14s" repeatCount="indefinite" />
+<rect x="22" y="178" width="92" height="64" rx="9" fill="#ddf4ff" stroke="#0969da" stroke-width="1.6"/>
+<text x="68" y="207" font-size="13" text-anchor="middle" font-weight="600" >Input</text>
+<text x="68" y="223" font-size="10.5" text-anchor="middle" class="m" >video</text>
+</g>
+<g opacity="0">
+<animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.06;0.09;0.94;0.98;1" dur="14s" repeatCount="indefinite" />
+<rect x="150" y="66" width="132" height="64" rx="9" fill="#f0fff4" stroke="#1a7f37" stroke-width="1.6"/>
+<text x="216" y="95" font-size="12.5" text-anchor="middle" font-weight="600" >ASR</text>
+<text x="216" y="111" font-size="10.5" text-anchor="middle" class="m" >WhisperX large-v3</text>
+</g>
+<g opacity="0">
+<animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.12;0.16;0.94;0.98;1" dur="14s" repeatCount="indefinite" />
+<rect x="310" y="66" width="132" height="64" rx="9" fill="#f0fff4" stroke="#1a7f37" stroke-width="1.6"/>
+<text x="376" y="95" font-size="12.5" text-anchor="middle" font-weight="600" >Chunking &amp; merging</text>
+<text x="376" y="111" font-size="10.5" text-anchor="middle" class="m" >20-40 s windows</text>
+</g>
+<g opacity="0">
+<animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.19;0.22;0.94;0.98;1" dur="14s" repeatCount="indefinite" />
+<rect x="470" y="66" width="132" height="64" rx="9" fill="#f0fff4" stroke="#1a7f37" stroke-width="1.6"/>
+<text x="536" y="95" font-size="12.5" text-anchor="middle" font-weight="600" >Text embeddings</text>
+<text x="536" y="111" font-size="10.5" text-anchor="middle" class="m" >MiniLM-L6-v2</text>
+</g>
+<g opacity="0">
+<animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.25;0.29;0.94;0.98;1" dur="14s" repeatCount="indefinite" />
+<rect x="630" y="66" width="132" height="64" rx="9" fill="#f0fff4" stroke="#1a7f37" stroke-width="1.6"/>
+<text x="696" y="95" font-size="12.5" text-anchor="middle" font-weight="600" >Topic segmentation</text>
+<text x="696" y="111" font-size="10.5" text-anchor="middle" class="m" >coarse + min. duration</text>
+</g>
+<g opacity="0">
+<animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.31;0.35;0.94;0.98;1" dur="14s" repeatCount="indefinite" />
+<rect x="790" y="66" width="132" height="64" rx="9" fill="#f0fff4" stroke="#1a7f37" stroke-width="1.6"/>
+<text x="856" y="95" font-size="12.5" text-anchor="middle" font-weight="600" >Topic boundaries</text>
+<text x="856" y="111" font-size="10.5" text-anchor="middle" class="m" >&amp; embeddings</text>
+</g>
+<g opacity="0">
+<animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.06;0.09;0.94;0.98;1" dur="14s" repeatCount="indefinite" />
+<rect x="150" y="280" width="132" height="64" rx="9" fill="#fff8f0" stroke="#d1580d" stroke-width="1.6"/>
+<text x="216" y="309" font-size="12.5" text-anchor="middle" font-weight="600" >Frame extraction</text>
+<text x="216" y="325" font-size="10.5" text-anchor="middle" class="m" >1 FPS</text>
+</g>
+<g opacity="0">
+<animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.12;0.16;0.94;0.98;1" dur="14s" repeatCount="indefinite" />
+<rect x="310" y="280" width="132" height="64" rx="9" fill="#fff8f0" stroke="#d1580d" stroke-width="1.6"/>
+<text x="376" y="309" font-size="12.5" text-anchor="middle" font-weight="600" >Visual encoder</text>
+<text x="376" y="325" font-size="10.5" text-anchor="middle" class="m" >SigLIP so400m</text>
+</g>
+<g opacity="0">
+<animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.19;0.22;0.94;0.98;1" dur="14s" repeatCount="indefinite" />
+<rect x="470" y="280" width="132" height="64" rx="9" fill="#fff8f0" stroke="#d1580d" stroke-width="1.6"/>
+<text x="536" y="309" font-size="12.5" text-anchor="middle" font-weight="600" >Frame embeddings</text>
+<text x="536" y="325" font-size="10.5" text-anchor="middle" class="m" >1152-d, L2-normalised</text>
+</g>
+<g opacity="0">
+<animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.25;0.29;0.94;0.98;1" dur="14s" repeatCount="indefinite" />
+<rect x="630" y="280" width="132" height="64" rx="9" fill="#fff8f0" stroke="#d1580d" stroke-width="1.6"/>
+<text x="696" y="309" font-size="12.5" text-anchor="middle" font-weight="600" >Scene clustering</text>
+<text x="696" y="325" font-size="10.5" text-anchor="middle" class="m" >HDBSCAN within topics</text>
+</g>
+<g opacity="0">
+<animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.31;0.35;0.94;0.98;1" dur="14s" repeatCount="indefinite" />
+<rect x="790" y="280" width="132" height="64" rx="9" fill="#fff8f0" stroke="#d1580d" stroke-width="1.6"/>
+<text x="856" y="309" font-size="12.5" text-anchor="middle" font-weight="600" >Scene boundaries</text>
+<text x="856" y="325" font-size="10.5" text-anchor="middle" class="m" >start / end times</text>
+</g>
+<g opacity="0">
+<animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.44;0.48;0.94;0.98;1" dur="14s" repeatCount="indefinite" />
+<rect x="985" y="128" width="160" height="64" rx="9" fill="#ddf4ff" stroke="#0969da" stroke-width="1.6"/>
+<text x="1065" y="157" font-size="12.5" text-anchor="middle" font-weight="600" >Hierarchical memory</text>
+<text x="1065" y="173" font-size="10.5" text-anchor="middle" class="m" >video / topics / scenes / frames</text>
+</g>
+<g opacity="0">
+<animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.51;0.55;0.94;0.98;1" dur="14s" repeatCount="indefinite" />
+<rect x="985" y="232" width="160" height="64" rx="9" fill="#ddf4ff" stroke="#0969da" stroke-width="1.6"/>
+<text x="1065" y="261" font-size="12.5" text-anchor="middle" font-weight="600" >Global FAISS index</text>
+<text x="1065" y="277" font-size="10.5" text-anchor="middle" class="m" >IndexFlatIP, topic level</text>
+</g>
+<g>
+<path d="M 114 200 L 130 200 L 130 98 L 150 98" fill="none" stroke="#636e72" stroke-width="1.8" stroke-dasharray="138" stroke-dashoffset="138">
+<animate attributeName="stroke-dashoffset" values="138;138;0;0;138;138" keyTimes="0;0.04;0.09;0.94;0.98;1" dur="14s" repeatCount="indefinite" />
+</path>
+<polygon points="150,98 141.9,101.91 141.9,94.09" fill="#636e72" opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.07;0.09;0.94;0.98;1" dur="14s" repeatCount="indefinite" /></polygon>
+<circle r="3.4" fill="#0969da" opacity="0">
+<animateMotion dur="2.2s" repeatCount="indefinite" path="M 114 200 L 130 200 L 130 98 L 150 98"/>
+<animate attributeName="opacity" values="0;0;0.95;0.95;0;0" keyTimes="0;0.09;0.1;0.94;0.98;1" dur="14s" repeatCount="indefinite" />
+</circle>
+</g>
+<g>
+<path d="M 114 220 L 130 220 L 130 312 L 150 312" fill="none" stroke="#636e72" stroke-width="1.8" stroke-dasharray="128" stroke-dashoffset="128">
+<animate attributeName="stroke-dashoffset" values="128;128;0;0;128;128" keyTimes="0;0.04;0.09;0.94;0.98;1" dur="14s" repeatCount="indefinite" />
+</path>
+<polygon points="150,312 141.9,315.91 141.9,308.09" fill="#636e72" opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.07;0.09;0.94;0.98;1" dur="14s" repeatCount="indefinite" /></polygon>
+<circle r="3.4" fill="#0969da" opacity="0">
+<animateMotion dur="2.2s" repeatCount="indefinite" path="M 114 220 L 130 220 L 130 312 L 150 312"/>
+<animate attributeName="opacity" values="0;0;0.95;0.95;0;0" keyTimes="0;0.09;0.1;0.94;0.98;1" dur="14s" repeatCount="indefinite" />
+</circle>
+</g>
+<g>
+<path d="M 282 98 L 310 98" fill="none" stroke="#636e72" stroke-width="1.8" stroke-dasharray="28" stroke-dashoffset="28">
+<animate attributeName="stroke-dashoffset" values="28;28;0;0;28;28" keyTimes="0;0.11;0.15;0.94;0.98;1" dur="14s" repeatCount="indefinite" />
+</path>
+<polygon points="310,98 301.9,101.91 301.9,94.09" fill="#636e72" opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.14;0.15;0.94;0.98;1" dur="14s" repeatCount="indefinite" /></polygon>
+<circle r="3.4" fill="#0969da" opacity="0">
+<animateMotion dur="2.2s" repeatCount="indefinite" path="M 282 98 L 310 98"/>
+<animate attributeName="opacity" values="0;0;0.95;0.95;0;0" keyTimes="0;0.15;0.16;0.94;0.98;1" dur="14s" repeatCount="indefinite" />
+</circle>
+</g>
+<g>
+<path d="M 282 312 L 310 312" fill="none" stroke="#636e72" stroke-width="1.8" stroke-dasharray="28" stroke-dashoffset="28">
+<animate attributeName="stroke-dashoffset" values="28;28;0;0;28;28" keyTimes="0;0.11;0.15;0.94;0.98;1" dur="14s" repeatCount="indefinite" />
+</path>
+<polygon points="310,312 301.9,315.91 301.9,308.09" fill="#636e72" opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.14;0.15;0.94;0.98;1" dur="14s" repeatCount="indefinite" /></polygon>
+<circle r="3.4" fill="#0969da" opacity="0">
+<animateMotion dur="2.2s" repeatCount="indefinite" path="M 282 312 L 310 312"/>
+<animate attributeName="opacity" values="0;0;0.95;0.95;0;0" keyTimes="0;0.15;0.16;0.94;0.98;1" dur="14s" repeatCount="indefinite" />
+</circle>
+</g>
+<g>
+<path d="M 442 98 L 470 98" fill="none" stroke="#636e72" stroke-width="1.8" stroke-dasharray="28" stroke-dashoffset="28">
+<animate attributeName="stroke-dashoffset" values="28;28;0;0;28;28" keyTimes="0;0.17;0.21;0.94;0.98;1" dur="14s" repeatCount="indefinite" />
+</path>
+<polygon points="470,98 461.9,101.91 461.9,94.09" fill="#636e72" opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.2;0.21;0.94;0.98;1" dur="14s" repeatCount="indefinite" /></polygon>
+<circle r="3.4" fill="#0969da" opacity="0">
+<animateMotion dur="2.2s" repeatCount="indefinite" path="M 442 98 L 470 98"/>
+<animate attributeName="opacity" values="0;0;0.95;0.95;0;0" keyTimes="0;0.21;0.23;0.94;0.98;1" dur="14s" repeatCount="indefinite" />
+</circle>
+</g>
+<g>
+<path d="M 442 312 L 470 312" fill="none" stroke="#636e72" stroke-width="1.8" stroke-dasharray="28" stroke-dashoffset="28">
+<animate attributeName="stroke-dashoffset" values="28;28;0;0;28;28" keyTimes="0;0.17;0.21;0.94;0.98;1" dur="14s" repeatCount="indefinite" />
+</path>
+<polygon points="470,312 461.9,315.91 461.9,308.09" fill="#636e72" opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.2;0.21;0.94;0.98;1" dur="14s" repeatCount="indefinite" /></polygon>
+<circle r="3.4" fill="#0969da" opacity="0">
+<animateMotion dur="2.2s" repeatCount="indefinite" path="M 442 312 L 470 312"/>
+<animate attributeName="opacity" values="0;0;0.95;0.95;0;0" keyTimes="0;0.21;0.23;0.94;0.98;1" dur="14s" repeatCount="indefinite" />
+</circle>
+</g>
+<g>
+<path d="M 602 98 L 630 98" fill="none" stroke="#636e72" stroke-width="1.8" stroke-dasharray="28" stroke-dashoffset="28">
+<animate attributeName="stroke-dashoffset" values="28;28;0;0;28;28" keyTimes="0;0.24;0.28;0.94;0.98;1" dur="14s" repeatCount="indefinite" />
+</path>
+<polygon points="630,98 621.9,101.91 621.9,94.09" fill="#636e72" opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.26;0.28;0.94;0.98;1" dur="14s" repeatCount="indefinite" /></polygon>
+<circle r="3.4" fill="#0969da" opacity="0">
+<animateMotion dur="2.2s" repeatCount="indefinite" path="M 602 98 L 630 98"/>
+<animate attributeName="opacity" values="0;0;0.95;0.95;0;0" keyTimes="0;0.28;0.29;0.94;0.98;1" dur="14s" repeatCount="indefinite" />
+</circle>
+</g>
+<g>
+<path d="M 602 312 L 630 312" fill="none" stroke="#636e72" stroke-width="1.8" stroke-dasharray="28" stroke-dashoffset="28">
+<animate attributeName="stroke-dashoffset" values="28;28;0;0;28;28" keyTimes="0;0.24;0.28;0.94;0.98;1" dur="14s" repeatCount="indefinite" />
+</path>
+<polygon points="630,312 621.9,315.91 621.9,308.09" fill="#636e72" opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.26;0.28;0.94;0.98;1" dur="14s" repeatCount="indefinite" /></polygon>
+<circle r="3.4" fill="#0969da" opacity="0">
+<animateMotion dur="2.2s" repeatCount="indefinite" path="M 602 312 L 630 312"/>
+<animate attributeName="opacity" values="0;0;0.95;0.95;0;0" keyTimes="0;0.28;0.29;0.94;0.98;1" dur="14s" repeatCount="indefinite" />
+</circle>
+</g>
+<g>
+<path d="M 762 98 L 790 98" fill="none" stroke="#636e72" stroke-width="1.8" stroke-dasharray="28" stroke-dashoffset="28">
+<animate attributeName="stroke-dashoffset" values="28;28;0;0;28;28" keyTimes="0;0.3;0.34;0.94;0.98;1" dur="14s" repeatCount="indefinite" />
+</path>
+<polygon points="790,98 781.9,101.91 781.9,94.09" fill="#636e72" opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.33;0.34;0.94;0.98;1" dur="14s" repeatCount="indefinite" /></polygon>
+<circle r="3.4" fill="#0969da" opacity="0">
+<animateMotion dur="2.2s" repeatCount="indefinite" path="M 762 98 L 790 98"/>
+<animate attributeName="opacity" values="0;0;0.95;0.95;0;0" keyTimes="0;0.34;0.36;0.94;0.98;1" dur="14s" repeatCount="indefinite" />
+</circle>
+</g>
+<g>
+<path d="M 762 312 L 790 312" fill="none" stroke="#636e72" stroke-width="1.8" stroke-dasharray="28" stroke-dashoffset="28">
+<animate attributeName="stroke-dashoffset" values="28;28;0;0;28;28" keyTimes="0;0.3;0.34;0.94;0.98;1" dur="14s" repeatCount="indefinite" />
+</path>
+<polygon points="790,312 781.9,315.91 781.9,308.09" fill="#636e72" opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.33;0.34;0.94;0.98;1" dur="14s" repeatCount="indefinite" /></polygon>
+<circle r="3.4" fill="#0969da" opacity="0">
+<animateMotion dur="2.2s" repeatCount="indefinite" path="M 762 312 L 790 312"/>
+<animate attributeName="opacity" values="0;0;0.95;0.95;0;0" keyTimes="0;0.34;0.36;0.94;0.98;1" dur="14s" repeatCount="indefinite" />
+</circle>
+</g>
+<g>
+<path d="M 922 98 L 965 98 L 965 150 L 985 150" fill="none" stroke="#636e72" stroke-width="1.8" stroke-dasharray="115" stroke-dashoffset="115">
+<animate attributeName="stroke-dashoffset" values="115;115;0;0;115;115" keyTimes="0;0.4;0.44;0.94;0.98;1" dur="14s" repeatCount="indefinite" />
+</path>
+<polygon points="985,150 976.9,153.91 976.9,146.09" fill="#636e72" opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.43;0.44;0.94;0.98;1" dur="14s" repeatCount="indefinite" /></polygon>
+<circle r="3.4" fill="#0969da" opacity="0">
+<animateMotion dur="2.2s" repeatCount="indefinite" path="M 922 98 L 965 98 L 965 150 L 985 150"/>
+<animate attributeName="opacity" values="0;0;0.95;0.95;0;0" keyTimes="0;0.44;0.46;0.94;0.98;1" dur="14s" repeatCount="indefinite" />
+</circle>
+</g>
+<g>
+<path d="M 922 312 L 965 312 L 965 170 L 985 170" fill="none" stroke="#636e72" stroke-width="1.8" stroke-dasharray="205" stroke-dashoffset="205">
+<animate attributeName="stroke-dashoffset" values="205;205;0;0;205;205" keyTimes="0;0.4;0.44;0.94;0.98;1" dur="14s" repeatCount="indefinite" />
+</path>
+<polygon points="985,170 976.9,173.91 976.9,166.09" fill="#636e72" opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.43;0.44;0.94;0.98;1" dur="14s" repeatCount="indefinite" /></polygon>
+<circle r="3.4" fill="#0969da" opacity="0">
+<animateMotion dur="2.2s" repeatCount="indefinite" path="M 922 312 L 965 312 L 965 170 L 985 170"/>
+<animate attributeName="opacity" values="0;0;0.95;0.95;0;0" keyTimes="0;0.44;0.46;0.94;0.98;1" dur="14s" repeatCount="indefinite" />
+</circle>
+</g>
+<g>
+<path d="M 1065 192 L 1065 232" fill="none" stroke="#636e72" stroke-width="1.8" stroke-dasharray="40" stroke-dashoffset="40">
+<animate attributeName="stroke-dashoffset" values="40;40;0;0;40;40" keyTimes="0;0.49;0.53;0.94;0.98;1" dur="14s" repeatCount="indefinite" />
+</path>
+<polygon points="1065,232 1061.09,223.9 1068.91,223.9" fill="#636e72" opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.51;0.53;0.94;0.98;1" dur="14s" repeatCount="indefinite" /></polygon>
+<circle r="3.4" fill="#0969da" opacity="0">
+<animateMotion dur="2.2s" repeatCount="indefinite" path="M 1065 192 L 1065 232"/>
+<animate attributeName="opacity" values="0;0;0.95;0.95;0;0" keyTimes="0;0.53;0.54;0.94;0.98;1" dur="14s" repeatCount="indefinite" />
+</circle>
+</g>
+</svg>

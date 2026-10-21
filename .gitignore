@@ -4,11 +4,17 @@
 # Keep this file tracked
 !.gitignore
 
-# Allow only backend and frontend directories (and all their contents)
+# Allow only the project folders and top-level docs (and all their contents)
 !backend/
 !backend/**
 !frontend/
 !frontend/**
+!Implementation/
+!Implementation/**
+!docs/
+!docs/**
+!README.md
+!LICENSE
 
 # Python virtual environments and caches inside backend
 backend/venv/
@@ -31,3 +37,9 @@ backend/.env.local
 backend/.env.*.local
 frontend/.env.local
 frontend/.env.*.local
+
+# Secrets: never commit real env files. These come last so they override the re-includes above.
+.env
+**/.env
+**/.env.*
+!**/.env.example

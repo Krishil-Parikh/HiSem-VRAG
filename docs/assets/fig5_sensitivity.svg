@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 410" width="1000" height="410" role="img" aria-labelledby="t d">
+<title id="t">Sensitivity analysis of key retrieval hyperparameters</title>
+<desc id="d">Animated line charts: (a) Topic Recall@3 versus the minimum topic score, (b) Scene Recall@3 versus the Gaussian smoothing sigma.</desc>
+<style>text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;fill:#24292f}.m{fill:#57606a}.b{font-weight:600}</style>
+<rect x="0.5" y="0.5" width="999" height="409" rx="12" fill="#ffffff" stroke="#d8dee4"/>
+<text x="275" y="54" font-size="13" text-anchor="middle" font-weight="600" >(a) Topic Recall@3 vs. minimum topic score</text>
+<line x1="95" y1="284.29" x2="455" y2="284.29" stroke="#d8dee4"/>
+<text x="87" y="288.29" font-size="11" text-anchor="end" class="m" >0.80</text>
+<line x1="95" y1="195" x2="455" y2="195" stroke="#d8dee4"/>
+<text x="87" y="199" font-size="11" text-anchor="end" class="m" >0.85</text>
+<line x1="95" y1="105.71" x2="455" y2="105.71" stroke="#d8dee4"/>
+<text x="87" y="109.71" font-size="11" text-anchor="end" class="m" >0.90</text>
+<text x="131" y="338" font-size="11" text-anchor="middle" class="m" >0.3</text>
+<text x="275" y="338" font-size="11" text-anchor="middle" class="m" >0.5</text>
+<text x="419" y="338" font-size="11" text-anchor="middle" class="m" >0.7</text>
+<line x1="95" y1="320" x2="455" y2="320" stroke="#24292f" stroke-width="1.4"/>
+<line x1="95" y1="70" x2="95" y2="320" stroke="#24292f" stroke-width="1.4"/>
+<text x="275" y="360" font-size="12" text-anchor="middle" class="m" >MIN_TOPIC_SCORE (cosine similarity)</text>
+<text transform="translate(49 195) rotate(-90)" font-size="12" text-anchor="middle" class="m">Topic Recall@3</text>
+<g opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.22;0.26;0.94;0.98;1" dur="12s" repeatCount="indefinite" /><line x1="419" y1="70" x2="419" y2="320" stroke="#cf222e" stroke-width="1.6" stroke-dasharray="5 4"/><text x="413" y="84" font-size="11.5" text-anchor="end" style="fill:#cf222e" font-weight="600" >default 0.7</text></g>
+<path d="M 131 165.24 L 275 105.71 L 419 284.29" fill="none" stroke="#2d3436" stroke-width="2.6" stroke-linejoin="round" stroke-dasharray="385.22" stroke-dashoffset="385.22"><animate attributeName="stroke-dashoffset" values="385.22;385.22;0;0;385.22;385.22" keyTimes="0;0.03;0.2;0.94;0.98;1" dur="12s" repeatCount="indefinite" /></path>
+<g opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.03;0.05;0.94;0.98;1" dur="12s" repeatCount="indefinite" /><circle cx="131" cy="165.24" r="4.6" fill="#2d3436" stroke="#fff" stroke-width="1.4"/><text x="131" y="154.24" font-size="11" text-anchor="middle" font-weight="600" >0.87</text></g>
+<g opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.12;0.13;0.94;0.98;1" dur="12s" repeatCount="indefinite" /><circle cx="275" cy="105.71" r="4.6" fill="#2d3436" stroke="#fff" stroke-width="1.4"/><text x="275" y="94.71" font-size="11" text-anchor="middle" font-weight="600" >0.90</text></g>
+<g opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.2;0.22;0.94;0.98;1" dur="12s" repeatCount="indefinite" /><circle cx="419" cy="284.29" r="4.6" fill="#2d3436" stroke="#fff" stroke-width="1.4"/><text x="419" y="273.29" font-size="11" text-anchor="middle" font-weight="600" >0.80</text></g>
+<text x="755" y="54" font-size="13" text-anchor="middle" font-weight="600" >(b) Scene Recall@3 vs. smoothing sigma</text>
+<line x1="570" y1="270" x2="940" y2="270" stroke="#d8dee4"/>
+<text x="562" y="274" font-size="11" text-anchor="end" class="m" >0.44</text>
+<line x1="570" y1="220" x2="940" y2="220" stroke="#d8dee4"/>
+<text x="562" y="224" font-size="11" text-anchor="end" class="m" >0.46</text>
+<line x1="570" y1="170" x2="940" y2="170" stroke="#d8dee4"/>
+<text x="562" y="174" font-size="11" text-anchor="end" class="m" >0.48</text>
+<line x1="570" y1="120" x2="940" y2="120" stroke="#d8dee4"/>
+<text x="562" y="124" font-size="11" text-anchor="end" class="m" >0.50</text>
+<line x1="570" y1="70" x2="940" y2="70" stroke="#d8dee4"/>
+<text x="562" y="74" font-size="11" text-anchor="end" class="m" >0.52</text>
+<text x="586.82" y="338" font-size="11" text-anchor="middle" class="m" >0.0</text>
+<text x="670.91" y="338" font-size="11" text-anchor="middle" class="m" >0.5</text>
+<text x="755" y="338" font-size="11" text-anchor="middle" class="m" >1.0</text>
+<text x="839.09" y="338" font-size="11" text-anchor="middle" class="m" >1.5</text>
+<text x="923.18" y="338" font-size="11" text-anchor="middle" class="m" >2.0</text>
+<line x1="570" y1="320" x2="940" y2="320" stroke="#24292f" stroke-width="1.4"/>
+<line x1="570" y1="70" x2="570" y2="320" stroke="#24292f" stroke-width="1.4"/>
+<text x="755" y="360" font-size="12" text-anchor="middle" class="m" >Gaussian sigma (frame indices)</text>
+<text transform="translate(524 195) rotate(-90)" font-size="12" text-anchor="middle" class="m">Scene Recall@3</text>
+<g opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.22;0.26;0.94;0.98;1" dur="12s" repeatCount="indefinite" /><line x1="839.09" y1="70" x2="839.09" y2="320" stroke="#1a7f37" stroke-width="1.6" stroke-dasharray="5 4"/><text x="833.09" y="84" font-size="11.5" text-anchor="end" style="fill:#1a7f37" font-weight="600" >optimal 1.5</text></g>
+<path d="M 586.82 271.79 L 670.91 182.5 L 755 182.5 L 839.09 120 L 923.18 182.5" fill="none" stroke="#0969da" stroke-width="2.6" stroke-linejoin="round" stroke-dasharray="416.29" stroke-dashoffset="416.29"><animate attributeName="stroke-dashoffset" values="416.29;416.29;0;0;416.29;416.29" keyTimes="0;0.03;0.2;0.94;0.98;1" dur="12s" repeatCount="indefinite" /></path>
+<g opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.03;0.05;0.94;0.98;1" dur="12s" repeatCount="indefinite" /><circle cx="586.82" cy="271.79" r="4.6" fill="#0969da" stroke="#fff" stroke-width="1.4"/><text x="586.82" y="260.79" font-size="11" text-anchor="middle" font-weight="600" >0.44</text></g>
+<g opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.07;0.09;0.94;0.98;1" dur="12s" repeatCount="indefinite" /><circle cx="670.91" cy="182.5" r="4.6" fill="#0969da" stroke="#fff" stroke-width="1.4"/><text x="670.91" y="171.5" font-size="11" text-anchor="middle" font-weight="600" >0.47</text></g>
+<g opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.12;0.13;0.94;0.98;1" dur="12s" repeatCount="indefinite" /><circle cx="755" cy="182.5" r="4.6" fill="#0969da" stroke="#fff" stroke-width="1.4"/><text x="755" y="171.5" font-size="11" text-anchor="middle" font-weight="600" >0.47</text></g>
+<g opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.16;0.18;0.94;0.98;1" dur="12s" repeatCount="indefinite" /><circle cx="839.09" cy="120" r="4.6" fill="#0969da" stroke="#fff" stroke-width="1.4"/><text x="839.09" y="109" font-size="11" text-anchor="middle" font-weight="600" >0.50</text></g>
+<g opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.2;0.22;0.94;0.98;1" dur="12s" repeatCount="indefinite" /><circle cx="923.18" cy="182.5" r="4.6" fill="#0969da" stroke="#fff" stroke-width="1.4"/><text x="923.18" y="171.5" font-size="11" text-anchor="middle" font-weight="600" >0.47</text></g>
+<text x="500" y="392" font-size="11.5" text-anchor="middle" class="m" >Grid-search results (TOP_K_GLOBAL = 10 for panel a; mean over all configurations per sigma for panel b)</text>
+</svg>

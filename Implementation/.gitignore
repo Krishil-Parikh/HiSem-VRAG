@@ -1,0 +1,41 @@
+# Secrets
+.env
+cookies.txt
+
+# Python
+venv/
+.venv/
+__pycache__/
+*.pyc
+
+# Data and artifacts produced by the pipeline (regenerate by running the phases; see docs/RUN_GUIDE.md)
+raw_full_videos/
+audio_full_wav/
+asr_transcripts_json/
+chunked_transcripts_json/
+transcript_embeddings/
+topics_json/
+frames/
+frame_embeddings/
+scenes_json/
+video_memory/
+ablation_results/
+evaluation_results/
+mini_dataset*/
+unverified_qa.json
+verified_qa.json
+phase_7_checkpoint.json
+phase_7_eval_results.csv
+phase_7_eval_report.html
+
+# Large binaries
+*.faiss
+*.npy
+*.npz
+*.pth
+*.safetensors
+*.mp4
+*.mp3
+*.wav
+*.part
+*.ytdl

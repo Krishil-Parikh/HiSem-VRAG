@@ -1,0 +1,36 @@
+# Tested with Python 3.11 on Windows 11 with an NVIDIA GPU (CUDA 12.1).
+#
+# Install PyTorch FIRST with the build that matches your machine, e.g. CUDA 12.1:
+#   pip install torch==2.5.1 torchaudio==2.5.1 --index-url https://download.pytorch.org/whl/cu121
+# CPU-only machines can use:  pip install torch==2.5.1 torchaudio==2.5.1
+# Then:  pip install -r requirements.txt
+#
+# System dependency (not installable with pip): ffmpeg, which must be on your PATH.
+
+# Core ML
+whisperx==3.4.3
+sentence-transformers==5.2.0
+transformers==4.57.6
+faiss-cpu==1.13.2
+hdbscan==0.8.41
+scikit-learn==1.8.0
+scipy==1.17.0
+numpy==2.0.2
+Pillow==12.1.0
+opencv-python==4.13.0.90
+
+# Data and download
+datasets==4.5.0
+pandas==2.2.3
+yt-dlp==2026.3.17
+tqdm==4.67.1
+
+# API access and configuration
+requests==2.32.5
+python-dotenv==1.2.1
+
+# Phase 7 evaluation metrics and reporting
+rich==14.2.0
+evaluate==0.4.6
+rouge-score==0.1.2
+bert-score==0.3.13

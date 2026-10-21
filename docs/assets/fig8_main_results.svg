@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 450" width="1000" height="450" role="img" aria-labelledby="t d">
+<title id="t">Main retrieval results</title>
+<desc id="d">Animated bar chart of video, topic and scene recall at several K.</desc>
+<style>text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;fill:#24292f}.m{fill:#57606a}.b{font-weight:600}</style>
+<rect x="0.5" y="0.5" width="999" height="449" rx="12" fill="#ffffff" stroke="#d8dee4"/>
+<line x1="80" y1="345" x2="975" y2="345" stroke="#d8dee4" stroke-width="1"/>
+<text x="72" y="349" font-size="11" text-anchor="end" class="m" >0</text>
+<line x1="80" y1="288" x2="975" y2="288" stroke="#d8dee4" stroke-width="1"/>
+<text x="72" y="292" font-size="11" text-anchor="end" class="m" >20</text>
+<line x1="80" y1="231" x2="975" y2="231" stroke="#d8dee4" stroke-width="1"/>
+<text x="72" y="235" font-size="11" text-anchor="end" class="m" >40</text>
+<line x1="80" y1="174" x2="975" y2="174" stroke="#d8dee4" stroke-width="1"/>
+<text x="72" y="178" font-size="11" text-anchor="end" class="m" >60</text>
+<line x1="80" y1="117" x2="975" y2="117" stroke="#d8dee4" stroke-width="1"/>
+<text x="72" y="121" font-size="11" text-anchor="end" class="m" >80</text>
+<line x1="80" y1="60" x2="975" y2="60" stroke="#d8dee4" stroke-width="1"/>
+<text x="72" y="64" font-size="11" text-anchor="end" class="m" >100</text>
+<line x1="80" y1="345" x2="975" y2="345" stroke="#24292f" stroke-width="1.4"/>
+<line x1="80" y1="60" x2="80" y2="345" stroke="#24292f" stroke-width="1.4"/>
+<text transform="translate(38 202.5) rotate(-90)" font-size="12" text-anchor="middle" class="m">Recall (%)</text>
+<rect x="123.5" y="345" width="48" height="0" fill="#0969da" stroke="#1b1f23" stroke-width="0.8" ><animate attributeName="height" values="0;0;120.27;120.27;0;0" keyTimes="0;0.03;0.08;0.94;0.98;1" dur="13s" repeatCount="indefinite" /><animate attributeName="y" values="345;345;224.73;224.73;345;345" keyTimes="0;0.03;0.08;0.94;0.98;1" dur="13s" repeatCount="indefinite" /></rect>
+<g opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.07;0.09;0.94;0.98;1" dur="13s" repeatCount="indefinite" /><text x="147.5" y="217.73" font-size="12" text-anchor="middle" font-weight="700" >42.2</text></g>
+<text x="147.5" y="363" font-size="12" text-anchor="middle" >R@1</text>
+<rect x="218.5" y="345" width="48" height="0" fill="#0969da" stroke="#1b1f23" stroke-width="0.8" ><animate attributeName="height" values="0;0;179.26;179.26;0;0" keyTimes="0;0.08;0.13;0.94;0.98;1" dur="13s" repeatCount="indefinite" /><animate attributeName="y" values="345;345;165.74;165.74;345;345" keyTimes="0;0.08;0.13;0.94;0.98;1" dur="13s" repeatCount="indefinite" /></rect>
+<g opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.12;0.14;0.94;0.98;1" dur="13s" repeatCount="indefinite" /><text x="242.5" y="158.74" font-size="12" text-anchor="middle" font-weight="700" >62.9</text></g>
+<text x="242.5" y="363" font-size="12" text-anchor="middle" >R@3</text>
+<text x="195" y="387" font-size="13" text-anchor="middle" style="fill:#0969da" font-weight="700" >Video level</text>
+<rect x="313.5" y="345" width="48" height="0" fill="#1a7f37" stroke="#1b1f23" stroke-width="0.8" ><animate attributeName="height" values="0;0;157.32;157.32;0;0" keyTimes="0;0.12;0.18;0.94;0.98;1" dur="13s" repeatCount="indefinite" /><animate attributeName="y" values="345;345;187.68;187.68;345;345" keyTimes="0;0.12;0.18;0.94;0.98;1" dur="13s" repeatCount="indefinite" /></rect>
+<g opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.16;0.18;0.94;0.98;1" dur="13s" repeatCount="indefinite" /><text x="337.5" y="180.68" font-size="12" text-anchor="middle" font-weight="700" >55.2</text></g>
+<text x="337.5" y="363" font-size="12" text-anchor="middle" >R@1</text>
+<rect x="408.5" y="345" width="48" height="0" fill="#1a7f37" stroke="#1b1f23" stroke-width="0.8" ><animate attributeName="height" values="0;0;239.4;239.4;0;0" keyTimes="0;0.17;0.22;0.94;0.98;1" dur="13s" repeatCount="indefinite" /><animate attributeName="y" values="345;345;105.6;105.6;345;345" keyTimes="0;0.17;0.22;0.94;0.98;1" dur="13s" repeatCount="indefinite" /></rect>
+<g opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.21;0.23;0.94;0.98;1" dur="13s" repeatCount="indefinite" /><text x="432.5" y="98.6" font-size="12" text-anchor="middle" font-weight="700" >84.0</text></g>
+<text x="432.5" y="363" font-size="12" text-anchor="middle" >R@3</text>
+<rect x="503.5" y="345" width="48" height="0" fill="#1a7f37" stroke="#1b1f23" stroke-width="0.8" ><animate attributeName="height" values="0;0;261.06;261.06;0;0" keyTimes="0;0.22;0.27;0.94;0.98;1" dur="13s" repeatCount="indefinite" /><animate attributeName="y" values="345;345;83.94;83.94;345;345" keyTimes="0;0.22;0.27;0.94;0.98;1" dur="13s" repeatCount="indefinite" /></rect>
+<g opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.25;0.28;0.94;0.98;1" dur="13s" repeatCount="indefinite" /><text x="527.5" y="76.94" font-size="12" text-anchor="middle" font-weight="700" >91.6</text></g>
+<text x="527.5" y="363" font-size="12" text-anchor="middle" >R@5</text>
+<text x="432.5" y="387" font-size="13" text-anchor="middle" style="fill:#1a7f37" font-weight="700" >Topic level</text>
+<rect x="598.5" y="345" width="48" height="0" fill="#d1580d" stroke="#1b1f23" stroke-width="0.8" ><animate attributeName="height" values="0;0;90.63;90.63;0;0" keyTimes="0;0.26;0.32;0.94;0.98;1" dur="13s" repeatCount="indefinite" /><animate attributeName="y" values="345;345;254.37;254.37;345;345" keyTimes="0;0.26;0.32;0.94;0.98;1" dur="13s" repeatCount="indefinite" /></rect>
+<g opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.3;0.32;0.94;0.98;1" dur="13s" repeatCount="indefinite" /><text x="622.5" y="247.37" font-size="12" text-anchor="middle" font-weight="700" >31.8</text></g>
+<text x="622.5" y="363" font-size="12" text-anchor="middle" >R@1</text>
+<rect x="693.5" y="345" width="48" height="0" fill="#d1580d" stroke="#1b1f23" stroke-width="0.8" ><animate attributeName="height" values="0;0;162.45;162.45;0;0" keyTimes="0;0.31;0.36;0.94;0.98;1" dur="13s" repeatCount="indefinite" /><animate attributeName="y" values="345;345;182.55;182.55;345;345" keyTimes="0;0.31;0.36;0.94;0.98;1" dur="13s" repeatCount="indefinite" /></rect>
+<g opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.35;0.37;0.94;0.98;1" dur="13s" repeatCount="indefinite" /><text x="717.5" y="175.55" font-size="12" text-anchor="middle" font-weight="700" >57.0</text></g>
+<text x="717.5" y="363" font-size="12" text-anchor="middle" >R@3</text>
+<rect x="788.5" y="345" width="48" height="0" fill="#d1580d" stroke="#1b1f23" stroke-width="0.8" ><animate attributeName="height" values="0;0;164.44;164.44;0;0" keyTimes="0;0.35;0.41;0.94;0.98;1" dur="13s" repeatCount="indefinite" /><animate attributeName="y" values="345;345;180.56;180.56;345;345" keyTimes="0;0.35;0.41;0.94;0.98;1" dur="13s" repeatCount="indefinite" /></rect>
+<g opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.39;0.42;0.94;0.98;1" dur="13s" repeatCount="indefinite" /><text x="812.5" y="173.56" font-size="12" text-anchor="middle" font-weight="700" >57.7</text></g>
+<text x="812.5" y="363" font-size="12" text-anchor="middle" >R@5</text>
+<rect x="883.5" y="345" width="48" height="0" fill="#d1580d" stroke="#1b1f23" stroke-width="0.8" ><animate attributeName="height" values="0;0;165.01;165.01;0;0" keyTimes="0;0.4;0.45;0.94;0.98;1" dur="13s" repeatCount="indefinite" /><animate attributeName="y" values="345;345;179.99;179.99;345;345" keyTimes="0;0.4;0.45;0.94;0.98;1" dur="13s" repeatCount="indefinite" /></rect>
+<g opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.44;0.46;0.94;0.98;1" dur="13s" repeatCount="indefinite" /><text x="907.5" y="172.99" font-size="12" text-anchor="middle" font-weight="700" >57.9</text></g>
+<text x="907.5" y="363" font-size="12" text-anchor="middle" >R@10</text>
+<text x="765" y="387" font-size="13" text-anchor="middle" style="fill:#d1580d" font-weight="700" >Scene level</text>
+<g opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.65;0.7;0.94;0.98;1" dur="13s" repeatCount="indefinite" /><line x1="575" y1="179.99" x2="955" y2="179.99" stroke="#d1580d" stroke-width="1.6" stroke-dasharray="5 4"/><text x="953" y="145.99" font-size="11.5" text-anchor="end" style="fill:#d1580d" font-weight="600" >oracle upper bound = 57.9</text></g>
+<text x="500" y="28" font-size="14" text-anchor="middle" font-weight="600" >Main retrieval results, YouCook2 (1,103 queries, full hierarchical pipeline)</text>
+</svg>

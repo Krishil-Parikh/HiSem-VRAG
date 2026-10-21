@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 450" width="1000" height="450" role="img" aria-labelledby="t d">
+<title id="t">Ablation comparison: contribution of components to retrieval recall</title>
+<desc id="d">Animated grouped bar chart of Topic Recall@1 and Scene Recall@3 for the full model and five ablations.</desc>
+<style>text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;fill:#24292f}.m{fill:#57606a}.b{font-weight:600}</style>
+<rect x="0.5" y="0.5" width="999" height="449" rx="12" fill="#ffffff" stroke="#d8dee4"/>
+<defs><pattern id="hatch" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="7" height="7" fill="#636e72"/><line x1="0" y1="0" x2="0" y2="7" stroke="#ffffff" stroke-width="2"/></pattern></defs>
+<line x1="80" y1="345" x2="975" y2="345" stroke="#d8dee4" stroke-width="1"/>
+<text x="72" y="349" font-size="11" text-anchor="end" class="m" >0</text>
+<line x1="80" y1="305.71" x2="975" y2="305.71" stroke="#d8dee4" stroke-width="1"/>
+<text x="72" y="309.71" font-size="11" text-anchor="end" class="m" >10</text>
+<line x1="80" y1="266.43" x2="975" y2="266.43" stroke="#d8dee4" stroke-width="1"/>
+<text x="72" y="270.43" font-size="11" text-anchor="end" class="m" >20</text>
+<line x1="80" y1="227.14" x2="975" y2="227.14" stroke="#d8dee4" stroke-width="1"/>
+<text x="72" y="231.14" font-size="11" text-anchor="end" class="m" >30</text>
+<line x1="80" y1="187.86" x2="975" y2="187.86" stroke="#d8dee4" stroke-width="1"/>
+<text x="72" y="191.86" font-size="11" text-anchor="end" class="m" >40</text>
+<line x1="80" y1="148.57" x2="975" y2="148.57" stroke="#d8dee4" stroke-width="1"/>
+<text x="72" y="152.57" font-size="11" text-anchor="end" class="m" >50</text>
+<line x1="80" y1="109.29" x2="975" y2="109.29" stroke="#d8dee4" stroke-width="1"/>
+<text x="72" y="113.29" font-size="11" text-anchor="end" class="m" >60</text>
+<line x1="80" y1="70" x2="975" y2="70" stroke="#d8dee4" stroke-width="1"/>
+<text x="72" y="74" font-size="11" text-anchor="end" class="m" >70</text>
+<line x1="80" y1="345" x2="975" y2="345" stroke="#24292f" stroke-width="1.4"/>
+<line x1="80" y1="70" x2="80" y2="345" stroke="#24292f" stroke-width="1.4"/>
+<text transform="translate(38 207.5) rotate(-90)" font-size="12" text-anchor="middle" class="m">Recall (%)</text>
+<rect x="102.58" y="345" width="50" height="0" fill="#2d3436" stroke="#1b1f23" stroke-width="0.8" ><animate attributeName="height" values="0;0;216.86;216.86;0;0" keyTimes="0;0.04;0.09;0.94;0.98;1" dur="13s" repeatCount="indefinite" /><animate attributeName="y" values="345;345;128.14;128.14;345;345" keyTimes="0;0.04;0.09;0.94;0.98;1" dur="13s" repeatCount="indefinite" /></rect>
+<g opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.08;0.11;0.94;0.98;1" dur="13s" repeatCount="indefinite" /><text x="127.58" y="121.14" font-size="11.5" text-anchor="middle" font-weight="700" >55.2</text></g>
+<rect x="156.58" y="345" width="50" height="0" fill="url(#hatch)" stroke="#1b1f23" stroke-width="0.8" ><animate attributeName="height" values="0;0;223.93;223.93;0;0" keyTimes="0;0.06;0.11;0.94;0.98;1" dur="13s" repeatCount="indefinite" /><animate attributeName="y" values="345;345;121.07;121.07;345;345" keyTimes="0;0.06;0.11;0.94;0.98;1" dur="13s" repeatCount="indefinite" /></rect>
+<g opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.1;0.13;0.94;0.98;1" dur="13s" repeatCount="indefinite" /><text x="181.58" y="114.07" font-size="11.5" text-anchor="middle" font-weight="700" >57.0</text></g>
+<text x="154.58" y="367" font-size="12" text-anchor="middle" >Base</text>
+<g opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.14;0.16;0.94;0.98;1" dur="13s" repeatCount="indefinite" /><text x="276.75" y="337" font-size="11.5" text-anchor="middle" class="m" >n/a</text></g>
+<rect x="305.75" y="345" width="50" height="0" fill="url(#hatch)" stroke="#1b1f23" stroke-width="0.8" ><animate attributeName="height" values="0;0;167.75;167.75;0;0" keyTimes="0;0.13;0.18;0.94;0.98;1" dur="13s" repeatCount="indefinite" /><animate attributeName="y" values="345;345;177.25;177.25;345;345" keyTimes="0;0.13;0.18;0.94;0.98;1" dur="13s" repeatCount="indefinite" /></rect>
+<g opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.17;0.2;0.94;0.98;1" dur="13s" repeatCount="indefinite" /><text x="330.75" y="170.25" font-size="11.5" text-anchor="middle" font-weight="700" >42.7</text></g>
+<text x="303.75" y="367" font-size="12" text-anchor="middle" >A1: Flat</text>
+<rect x="400.92" y="345" width="50" height="0" fill="#2d3436" stroke="#1b1f23" stroke-width="0.8" ><animate attributeName="height" values="0;0;157.54;157.54;0;0" keyTimes="0;0.18;0.23;0.94;0.98;1" dur="13s" repeatCount="indefinite" /><animate attributeName="y" values="345;345;187.46;187.46;345;345" keyTimes="0;0.18;0.23;0.94;0.98;1" dur="13s" repeatCount="indefinite" /></rect>
+<g opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.22;0.25;0.94;0.98;1" dur="13s" repeatCount="indefinite" /><text x="425.92" y="180.46" font-size="11.5" text-anchor="middle" font-weight="700" >40.1</text></g>
+<rect x="454.92" y="345" width="50" height="0" fill="url(#hatch)" stroke="#1b1f23" stroke-width="0.8" ><animate attributeName="height" values="0;0;245.14;245.14;0;0" keyTimes="0;0.2;0.25;0.94;0.98;1" dur="13s" repeatCount="indefinite" /><animate attributeName="y" values="345;345;99.86;99.86;345;345" keyTimes="0;0.2;0.25;0.94;0.98;1" dur="13s" repeatCount="indefinite" /></rect>
+<g opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.24;0.27;0.94;0.98;1" dur="13s" repeatCount="indefinite" /><text x="479.92" y="92.86" font-size="11.5" text-anchor="middle" font-weight="700" >62.4</text></g>
+<text x="452.92" y="367" font-size="12" text-anchor="middle" >A2: No decomp.</text>
+<rect x="550.08" y="345" width="50" height="0" fill="#2d3436" stroke="#1b1f23" stroke-width="0.8" ><animate attributeName="height" values="0;0;104.11;104.11;0;0" keyTimes="0;0.25;0.3;0.94;0.98;1" dur="13s" repeatCount="indefinite" /><animate attributeName="y" values="345;345;240.89;240.89;345;345" keyTimes="0;0.25;0.3;0.94;0.98;1" dur="13s" repeatCount="indefinite" /></rect>
+<g opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.29;0.32;0.94;0.98;1" dur="13s" repeatCount="indefinite" /><text x="575.08" y="233.89" font-size="11.5" text-anchor="middle" font-weight="700" >26.5</text></g>
+<rect x="604.08" y="345" width="50" height="0" fill="url(#hatch)" stroke="#1b1f23" stroke-width="0.8" ><animate attributeName="height" values="0;0;191.32;191.32;0;0" keyTimes="0;0.27;0.32;0.94;0.98;1" dur="13s" repeatCount="indefinite" /><animate attributeName="y" values="345;345;153.68;153.68;345;345" keyTimes="0;0.27;0.32;0.94;0.98;1" dur="13s" repeatCount="indefinite" /></rect>
+<g opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.31;0.33;0.94;0.98;1" dur="13s" repeatCount="indefinite" /><text x="629.08" y="146.68" font-size="11.5" text-anchor="middle" font-weight="700" >48.7</text></g>
+<text x="602.08" y="367" font-size="12" text-anchor="middle" >A3: Heuristic</text>
+<rect x="699.25" y="345" width="50" height="0" fill="#2d3436" stroke="#1b1f23" stroke-width="0.8" ><animate attributeName="height" values="0;0;103.32;103.32;0;0" keyTimes="0;0.32;0.37;0.94;0.98;1" dur="13s" repeatCount="indefinite" /><animate attributeName="y" values="345;345;241.68;241.68;345;345" keyTimes="0;0.32;0.37;0.94;0.98;1" dur="13s" repeatCount="indefinite" /></rect>
+<g opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.36;0.38;0.94;0.98;1" dur="13s" repeatCount="indefinite" /><text x="724.25" y="234.68" font-size="11.5" text-anchor="middle" font-weight="700" >26.3</text></g>
+<rect x="753.25" y="345" width="50" height="0" fill="url(#hatch)" stroke="#1b1f23" stroke-width="0.8" ><animate attributeName="height" values="0;0;190.14;190.14;0;0" keyTimes="0;0.33;0.39;0.94;0.98;1" dur="13s" repeatCount="indefinite" /><animate attributeName="y" values="345;345;154.86;154.86;345;345" keyTimes="0;0.33;0.39;0.94;0.98;1" dur="13s" repeatCount="indefinite" /></rect>
+<g opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.38;0.4;0.94;0.98;1" dur="13s" repeatCount="indefinite" /><text x="778.25" y="147.86" font-size="11.5" text-anchor="middle" font-weight="700" >48.4</text></g>
+<text x="751.25" y="367" font-size="12" text-anchor="middle" >A4: Position</text>
+<rect x="848.42" y="345" width="50" height="0" fill="#2d3436" stroke="#1b1f23" stroke-width="0.8" ><animate attributeName="height" values="0;0;100.18;100.18;0;0" keyTimes="0;0.38;0.44;0.94;0.98;1" dur="13s" repeatCount="indefinite" /><animate attributeName="y" values="345;345;244.82;244.82;345;345" keyTimes="0;0.38;0.44;0.94;0.98;1" dur="13s" repeatCount="indefinite" /></rect>
+<g opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.43;0.45;0.94;0.98;1" dur="13s" repeatCount="indefinite" /><text x="873.42" y="237.82" font-size="11.5" text-anchor="middle" font-weight="700" >25.5</text></g>
+<rect x="902.42" y="345" width="50" height="0" fill="url(#hatch)" stroke="#1b1f23" stroke-width="0.8" ><animate attributeName="height" values="0;0;192.5;192.5;0;0" keyTimes="0;0.4;0.46;0.94;0.98;1" dur="13s" repeatCount="indefinite" /><animate attributeName="y" values="345;345;152.5;152.5;345;345" keyTimes="0;0.4;0.46;0.94;0.98;1" dur="13s" repeatCount="indefinite" /></rect>
+<g opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.45;0.47;0.94;0.98;1" dur="13s" repeatCount="indefinite" /><text x="927.42" y="145.5" font-size="11.5" text-anchor="middle" font-weight="700" >49.0</text></g>
+<text x="900.42" y="367" font-size="12" text-anchor="middle" >A6: No smooth</text>
+<rect x="760" y="30" width="14" height="14" fill="#2d3436"/><text x="782" y="42" font-size="12" text-anchor="start" >Topic R@1</text><rect x="860" y="30" width="14" height="14" fill="url(#hatch)"/><text x="882" y="42" font-size="12" text-anchor="start" >Scene R@3</text>
+<text x="500" y="412" font-size="11.5" text-anchor="middle" class="m" >A1 (flat retrieval) has no topic stage, so Topic R@1 is not applicable. A5 appears in the table, not in the paper figure.</text>
+</svg>
