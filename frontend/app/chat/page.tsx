@@ -337,20 +337,100 @@ export default function ChatPage() {
                       <div className="ml-11 mb-3 bg-card border border-border/50 shadow-sm rounded-xl p-4 text-xs">
                         <div className="font-bold flex items-center gap-2 mb-3 text-foreground/80">
                           <Layers className="w-4 h-4 text-primary" />
-                          Retrieval Pipeline Metrics
+                          VRAG Pipeline Trace
                         </div>
-                        <div className="grid grid-cols-2 sm:grid-cols-3 gap-y-3 gap-x-4 text-foreground/70">
-                          <div><span className="opacity-60">Queries:</span> <span className="font-medium text-foreground">{message.metrics.num_queries_formed}</span></div>
-                          <div><span className="opacity-60">Videos:</span> <span className="font-medium text-foreground">{message.metrics.num_videos_retrieved}</span></div>
-                          <div><span className="opacity-60">Topics:</span> <span className="font-medium text-foreground">{message.metrics.num_topics_retrieved}</span></div>
-                          <div><span className="opacity-60">Scenes:</span> <span className="font-medium text-foreground">{message.metrics.num_scenes_retrieved}</span></div>
-                          <div><span className="opacity-60">Frames:</span> <span className="font-medium text-foreground">{message.metrics.num_frames_retrieved}</span></div>
+
+                        {/* Step 1: Query Decomposition */}
+                        <div className="mb-4">
+                          <div className="flex items-center gap-2 mb-2">
+                            <span className="w-5 h-5 rounded-full bg-blue-500/20 text-blue-400 flex items-center justify-center text-[9px] font-bold shrink-0">1</span>
+                            <span className="font-semibold text-blue-400 text-[10px] uppercase tracking-wider">Query Decomposition</span>
+                            <span className="text-[9px] text-foreground/40 ml-auto">{message.metrics.num_queries_formed} sub-queries</span>
+                          </div>
+                          <div className="ml-7 space-y-1">
+                            {message.metrics.queries.map((q, qi) => (
+                              <div key={qi} className="flex items-start gap-2 text-[11px]">
+                                <ArrowRight className="w-3 h-3 text-blue-400/60 shrink-0 mt-0.5" />
+                                <span className={qi === 0 ? "text-foreground font-medium" : "text-foreground/60"}>{q}</span>
+                              </div>
+                            ))}
+                          </div>
                         </div>
-                        <div className="mt-3 pt-3 border-t border-border/50 text-[10px] text-foreground/60 italic overflow-x-auto whitespace-nowrap custom-scrollbar pb-1">
-                          <strong>Searched terms:</strong> {message.metrics.queries.join(" • ")}
+
+                        {/* Step 2: Retrieval Summary */}
+                        <div className="mb-4">
+                          <div className="flex items-center gap-2 mb-2">
+                            <span className="w-5 h-5 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-[9px] font-bold shrink-0">2</span>
+                            <span className="font-semibold text-emerald-400 text-[10px] uppercase tracking-wider">Hierarchical Retrieval</span>
+                          </div>
+                          <div className="ml-7 grid grid-cols-4 gap-2">
+                            <div className="bg-emerald-500/5 border border-emerald-500/20 rounded-lg p-2 text-center">
+                              <div className="text-lg font-bold text-emerald-400">{message.metrics.num_videos_retrieved}</div>
+                              <div className="text-[9px] text-foreground/40">Videos</div>
+                            </div>
+                            <div className="bg-emerald-500/5 border border-emerald-500/20 rounded-lg p-2 text-center">
+                              <div className="text-lg font-bold text-emerald-400">{message.metrics.num_topics_retrieved}</div>
+                              <div className="text-[9px] text-foreground/40">Topics</div>
+                            </div>
+                            <div className="bg-emerald-500/5 border border-emerald-500/20 rounded-lg p-2 text-center">
+                              <div className="text-lg font-bold text-emerald-400">{message.metrics.num_scenes_retrieved}</div>
+                              <div className="text-[9px] text-foreground/40">Scenes</div>
+                            </div>
+                            <div className="bg-emerald-500/5 border border-emerald-500/20 rounded-lg p-2 text-center">
+                              <div className="text-lg font-bold text-emerald-400">{message.metrics.num_frames_retrieved}</div>
+                              <div className="text-[9px] text-foreground/40">VLM Frames</div>
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Step 3: Scene Similarity Scores */}
+                        {message.metrics.scene_similarities && message.metrics.scene_similarities.length > 0 && (
+                          <div className="mb-4">
+                            <div className="flex items-center gap-2 mb-2">
+                              <span className="w-5 h-5 rounded-full bg-violet-500/20 text-violet-400 flex items-center justify-center text-[9px] font-bold shrink-0">3</span>
+                              <span className="font-semibold text-violet-400 text-[10px] uppercase tracking-wider">SigLIP Scene Scores</span>
+                              <span className="text-[9px] text-foreground/30 ml-auto">cross-modal cosine similarity</span>
+                            </div>
+                            <div className="ml-7 space-y-1.5">
+                              {[...message.metrics.scene_similarities]
+                                .sort((a, b) => b.score - a.score)
+                                .map((sim, si) => (
+                                <div key={si} className="flex items-center gap-2">
+                                  <span className="text-[9px] font-mono text-foreground/40 w-16 shrink-0 truncate">{sim.video_id.slice(0, 11)}</span>
+                                  <span className="text-[9px] text-foreground/30 w-8 shrink-0">S{sim.scene_id}</span>
+                                  <div className="flex-1 h-2 bg-muted rounded-full overflow-hidden">
+                                    <div
+                                      className="h-full rounded-full bg-gradient-to-r from-violet-500 to-purple-400 transition-all"
+                                      style={{ width: `${Math.min(sim.score * 100, 100)}%` }}
+                                    />
+                                  </div>
+                                  <span className={`text-[10px] font-mono font-bold w-12 text-right shrink-0 ${
+                                    sim.score >= 0.35 ? 'text-emerald-400' : sim.score >= 0.2 ? 'text-amber-400' : 'text-rose-400'
+                                  }`}>
+                                    {(sim.score * 100).toFixed(1)}%
+                                  </span>
+                                </div>
+                              ))}
+                            </div>
+                            <p className="ml-7 mt-2 text-[9px] text-foreground/30 italic">
+                              SigLIP cross-modal scores of 20-45% indicate strong semantic match between query text and video frames.
+                            </p>
+                          </div>
+                        )}
+
+                        {/* Step 4: VLM + Answer Gen */}
+                        <div>
+                          <div className="flex items-center gap-2 mb-1">
+                            <span className="w-5 h-5 rounded-full bg-amber-500/20 text-amber-400 flex items-center justify-center text-[9px] font-bold shrink-0">4</span>
+                            <span className="font-semibold text-amber-400 text-[10px] uppercase tracking-wider">VLM Frame Description → Answer Generation</span>
+                          </div>
+                          <p className="ml-7 text-[10px] text-foreground/40">
+                            {message.metrics.num_frames_retrieved} keyframes described by <span className="font-mono text-amber-400/80">gemma-4-26b-a4b-it</span> VLM, then answer synthesized with full evidence context.
+                          </p>
                         </div>
                       </div>
                     )}
+
                     {/* Popularity Re-Ranking Comparison */}
                     {message.display_scenes && message.display_scenes.length > 0 && message.display_scenes.some(s => s.original_score != null) && (
                       <div className="ml-11 mb-3">
@@ -394,7 +474,7 @@ export default function ChatPage() {
                                           <p className="text-[10px] font-mono text-foreground/70 truncate">{scene.video_id}</p>
                                           <p className="text-[9px] text-foreground/40 truncate">{scene.text.slice(0, 50)}...</p>
                                         </div>
-                                        <span className="text-[10px] font-mono text-blue-400 shrink-0">{(scene.original_score ?? 0).toFixed(4)}</span>
+                                        <span className="text-[10px] font-mono text-blue-400 shrink-0">{((scene.original_score ?? 0) * 100).toFixed(1)}%</span>
                                       </div>
                                     ))}
                                 </div>
@@ -440,9 +520,9 @@ export default function ChatPage() {
                                             <p className="text-[9px] text-foreground/40 truncate">{scene.text.slice(0, 50)}...</p>
                                           </div>
                                           <div className="text-right shrink-0">
-                                            <span className="text-[10px] font-mono text-emerald-400">{scene.score.toFixed(4)}</span>
+                                            <span className="text-[10px] font-mono text-emerald-400">{(scene.score * 100).toFixed(1)}%</span>
                                             <br />
-                                            <span className="text-[8px] font-mono text-amber-400/60">pop: {(scene.popularity_score ?? 0).toFixed(3)}</span>
+                                            <span className="text-[8px] font-mono text-amber-400/60">pop: {((scene.popularity_score ?? 0) * 100).toFixed(1)}%</span>
                                           </div>
                                         </div>
                                       );
@@ -453,7 +533,7 @@ export default function ChatPage() {
 
                             {/* Legend */}
                             <div className="mt-3 pt-3 border-t border-border/30 flex items-center gap-4 text-[9px] text-foreground/40">
-                              <span>final = 0.9 \u00d7 similarity + 0.1 \u00d7 popularity</span>
+                              <span>final = 0.9 × similarity + 0.1 × popularity</span>
                               <span className="flex items-center gap-1"><span className="text-emerald-400">\u2191</span> moved up</span>
                               <span className="flex items-center gap-1"><span className="text-rose-400">\u2193</span> moved down</span>
                             </div>
@@ -461,6 +541,8 @@ export default function ChatPage() {
                         )}
                       </div>
                     )}
+
+                    {/* Evidence Scene Cards */}
                     {message.display_scenes && message.display_scenes.length > 0 && (
                       <div className="ml-11 grid grid-cols-1 md:grid-cols-2 gap-4 pb-4">
                         {message.display_scenes.map((scene, i) => (
@@ -476,12 +558,28 @@ export default function ChatPage() {
                                <div className="absolute top-2 left-2 px-2 py-0.5 rounded bg-black/70 backdrop-blur-md border border-white/10 text-[9px] text-white font-bold uppercase tracking-wider pointer-events-none transition-opacity duration-300 group-hover/vid:opacity-0">
                                  {scene.video_id} {scene.type === 'combined' && <span className="text-primary ml-1">COMBINED SCENES</span>}
                                </div>
-
+                               {/* Score Badge */}
+                               <div className={`absolute top-2 right-2 px-2 py-0.5 rounded-full backdrop-blur-md border text-[10px] font-bold font-mono pointer-events-none ${
+                                 scene.score >= 0.35
+                                   ? 'bg-emerald-500/30 border-emerald-400/40 text-emerald-300'
+                                   : scene.score >= 0.2
+                                     ? 'bg-amber-500/30 border-amber-400/40 text-amber-300'
+                                     : 'bg-rose-500/30 border-rose-400/40 text-rose-300'
+                               }`}>
+                                 {(scene.score * 100).toFixed(1)}%
+                               </div>
+                               {/* Timestamp Badge */}
+                               <div className="absolute bottom-2 right-2 px-2 py-0.5 rounded bg-black/70 backdrop-blur-md text-[9px] text-white/80 font-mono pointer-events-none">
+                                 {formatTime(scene.start_time)} – {formatTime(scene.end_time)}
+                               </div>
                             </div>
-                            <div className="p-3 space-y-2 flex-1 flex flex-col justify-center bg-card">
+                            <div className="p-3 space-y-2 flex-1 flex flex-col justify-between bg-card">
                               <p className="text-[11px] text-foreground/90 font-medium leading-relaxed line-clamp-2">{scene.text}</p>
                               {scene.visual_description && (
-                                <p className="text-[10px] text-foreground/50 italic line-clamp-2">"{scene.visual_description}"</p>
+                                <div className="flex items-start gap-1.5 bg-violet-500/5 border border-violet-500/15 rounded-lg p-2">
+                                  <span className="text-[8px] font-bold text-violet-400 uppercase tracking-wider shrink-0 mt-0.5">VLM</span>
+                                  <p className="text-[10px] text-foreground/50 italic line-clamp-2">{scene.visual_description}</p>
+                                </div>
                               )}
                             </div>
                           </div>

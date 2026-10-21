@@ -75,15 +75,15 @@ def process_one_job(video_id):
         )
         
         if result.get("status") == "completed":
-            print(f"\n✓ {video_id} completed successfully!")
+            print(f"\n[OK] {video_id} completed successfully!")
             update_status(video_id, "completed", phase="Done!")
         else:
-            print(f"\n✗ {video_id} failed: {result.get('error')}")
+            print(f"\n[FAIL] {video_id} failed: {result.get('error')}")
             update_status(video_id, "failed", error=result.get("error", "Unknown error"))
     
     except Exception as e:
         import traceback
-        print(f"\n✗ {video_id} error: {e}")
+        print(f"\n[FAIL] {video_id} error: {e}")
         traceback.print_exc()
         update_status(video_id, "failed", error=str(e))
 

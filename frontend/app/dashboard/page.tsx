@@ -350,7 +350,7 @@ export default function DashboardPage() {
                           <p className="text-sm font-medium text-foreground truncate">{file.name}</p>
                           <p className="text-xs text-foreground/60">
                             {(file.size / (1024 * 1024)).toFixed(2)} MB
-                            {file.status === 'uploaded' && <span className="text-green-500 ml-2">✓ Uploaded</span>}
+                            {file.status === 'uploaded' && <span className="text-green-500 ml-2">Uploaded</span>}
                             {file.status === 'uploading' && <span className="text-yellow-500 ml-2">Uploading...</span>}
                             {file.status === 'error' && <span className="text-red-500 ml-2">Error</span>}
                           </p>

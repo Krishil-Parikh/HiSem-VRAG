@@ -354,7 +354,7 @@ export default function ProcessingPage() {
           {!isComplete && !hasError && (
             <div className="mt-12 p-4 rounded-lg bg-card border border-border/50">
               <p className="text-xs text-foreground/60 text-center">
-                💡 Tip: Processing may take 5-15 minutes depending on video length. You can leave this page and check back later.
+                Tip: Processing may take 5-15 minutes depending on video length. You can leave this page and check back later.
               </p>
             </div>
           )}

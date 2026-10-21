@@ -12,3 +12,6 @@ opencv-python
 hdbscan
 scikit-learn
 Pillow
+python-dotenv
+google-genai
+faiss-cpu

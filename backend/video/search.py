@@ -1,13 +1,20 @@
 import os
+import itertools
+import threading
+from dotenv import load_dotenv, find_dotenv
+
+# Load environment variables from .env file
+load_dotenv(find_dotenv())
+
 import faiss
 import json
-import requests
 import numpy as np
 import torch
 from pathlib import Path
 from typing import List, Dict, Any, Tuple, Optional
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from scipy.ndimage import gaussian_filter1d
+from PIL import Image
 
 # Popularity re-ranking (additive — does not touch existing logic)
 from .popularity import load_popularity, rerank_with_popularity
@@ -24,18 +31,25 @@ from .pipeline import (
 GLOBAL_INDEX_PATH = IMPLEMENTATION_MEMORY / "global_topic_index.faiss"
 GLOBAL_METADATA_PATH = IMPLEMENTATION_MEMORY / "global_topic_metadata.json"
 
-# OpenRouter Config
-OPENROUTER_API_KEY = os.environ.get("OPENROUTER_API_KEY", "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")
-OPENROUTER_HEADERS = {
-    "Authorization": f"Bearer {OPENROUTER_API_KEY}",
-    "Content-Type": "application/json",
-    "HTTP-Referer": "https://github.com/yourusername/vrag",
-    "X-Title": "VideoRAG Dashboard",
-}
+# ═══════════════════════════════════════════════════════════════════════════════
+# GEMINI CONFIG — Round-robin API keys to avoid rate limiting
+# ═══════════════════════════════════════════════════════════════════════════════
 
-DECOMPOSE_MODEL = "meta-llama/llama-3.1-8b-instruct"
-ANSWER_MODEL    = "meta-llama/llama-3.1-8b-instruct"
-VLM_MODEL       = "qwen/qwen2.5-vl-72b-instruct"
+# Comma-separated list in .env (GEMINI_API_KEYS); never commit real keys.
+GEMINI_KEYS = [k.strip() for k in os.environ.get("GEMINI_API_KEYS", "").split(",") if k.strip()]
+if not GEMINI_KEYS:
+    print("[WARN] GEMINI_API_KEYS is not set. Copy backend/.env.example to backend/.env and add your keys.")
+_gem_cycle = itertools.cycle(GEMINI_KEYS)
+_gem_lock = threading.Lock()
+
+def get_next_gemini_key():
+    with _gem_lock:
+        return next(_gem_cycle)
+
+# Models — all Gemma 4 26B
+DECOMPOSE_MODEL = "gemma-4-26b-a4b-it"
+ANSWER_MODEL    = "gemma-4-26b-a4b-it"
+VLM_MODEL       = "gemma-4-26b-a4b-it"
 
 # Search Parameters
 MIN_TOPIC_SCORE = 0.25
@@ -61,33 +75,55 @@ def load_global_search():
         _metadata = json.load(f)
     return _index, _metadata
 
-def call_openrouter(messages: List[Dict], model: str, temperature: float = 0.4, max_tokens: int = 800) -> str:
-    payload = {
-        "model": model,
-        "messages": messages,
-        "temperature": temperature,
-        "max_tokens": max_tokens,
-    }
+# ═══════════════════════════════════════════════════════════════════════════════
+# GEMINI LLM HELPER — replaces call_openrouter
+# ═══════════════════════════════════════════════════════════════════════════════
+
+def call_gemini_llm(messages: List[Dict], model: str, temperature: float = 0.4) -> str:
+    """Call Gemini LLM with round-robin API keys. Replaces call_openrouter."""
     try:
-        response = requests.post(
-            "https://openrouter.ai/api/v1/chat/completions",
-            headers=OPENROUTER_HEADERS,
-            json=payload,
-            timeout=60
-        )
-        if response.status_code != 200:
-            return ""
-        result = response.json()
-        return result["choices"][0]["message"]["content"].strip()
-    except Exception:
+        from google import genai
+        from google.genai import types
+    except ImportError:
+        print("[ERROR] google-genai package not installed. Run: pip install google-genai")
         return ""
+
+    # Convert OpenAI-style messages to a single prompt string
+    prompt = ""
+    for msg in messages:
+        role = msg.get("role", "user")
+        content = msg.get("content", "")
+        if isinstance(content, str):
+            if role == "system":
+                prompt += f"System: {content}\n"
+            elif role == "user":
+                prompt += f"User: {content}\n"
+        # Skip image-based content (handled separately by VLM)
+
+    client = genai.Client(api_key=get_next_gemini_key())
+
+    try:
+        response = client.models.generate_content(
+            model=model,
+            contents=prompt,
+            config=types.GenerateContentConfig(temperature=temperature)
+        )
+        if response.text:
+            return response.text.strip()
+        else:
+            print("[WARN] Gemini returned empty response (safety filter or thinking cutoff)")
+            return ""
+    except Exception as e:
+        print(f"[ERROR] Gemini LLM exception: {e}")
+        return ""
+
 
 def decompose_query(query: str) -> List[str]:
     messages = [
         {"role": "system", "content": "Break down questions into 2-3 specific sub-questions for video retrieval. Output only a numbered list."},
         {"role": "user", "content": f"Question: {query}"}
     ]
-    text = call_openrouter(messages, DECOMPOSE_MODEL, temperature=0.3, max_tokens=200)
+    text = call_gemini_llm(messages, DECOMPOSE_MODEL, temperature=0.3)
     if not text: return [query]
     lines = [line.strip() for line in text.split("\n") if line.strip() and line.strip()[0].isdigit()]
     subs = [line.split(".", 1)[1].strip() if "." in line else line for line in lines]
@@ -128,20 +164,39 @@ def search_global_topics(query: str, top_k: int = 5, video_ids: list[str] = None
         if len(results) >= top_k: break
     return results
 
+# ═══════════════════════════════════════════════════════════════════════════════
+# VLM — Gemini-based frame description (replaces OpenRouter VLM)
+# ═══════════════════════════════════════════════════════════════════════════════
+
 def describe_frame_with_vlm(frame_path: str, context: str = "") -> str:
-    if not os.path.exists(frame_path): return "[frame not found]"
-    
-    import base64
-    with open(frame_path, "rb") as f:
-        img_data = base64.b64encode(f.read()).decode("utf-8")
-        
-    messages = [
-        {"role": "user", "content": [
-            {"type": "text", "text": f"Describe this cooking video frame concisely. Focus on: ingredients, tools, actions. Context: {context}"},
-            {"type": "image_url", "image_url": {"url": f"data:image/jpeg;base64,{img_data}"}}
-        ]}
-    ]
-    return call_openrouter(messages, VLM_MODEL, temperature=0.3, max_tokens=150)
+    """Describe a video frame using Gemma 4 VLM via Gemini API."""
+    if not os.path.exists(frame_path):
+        return "[frame not found]"
+
+    try:
+        from google import genai
+        from google.genai import types
+    except ImportError:
+        return "[error: google-genai not installed]"
+
+    client = genai.Client(api_key=get_next_gemini_key())
+    prompt = f"Describe this cooking video frame concisely. Focus on: ingredients, tools, actions, cooking stage. Context: {context}"
+
+    try:
+        image = Image.open(frame_path)
+        response = client.models.generate_content(
+            model=VLM_MODEL,
+            contents=[prompt, image],
+            config=types.GenerateContentConfig(temperature=0.3)
+        )
+        if response.text:
+            return response.text.strip()
+        else:
+            return "[VLM blocked or empty response]"
+    except Exception as e:
+        print(f"[ERROR] Gemini VLM error: {e}")
+        return ""
+
 
 def run_full_rag_pipeline(query: str, video_ids: list[str] = None):
     # 1. Decompose Query
@@ -277,8 +332,9 @@ def run_full_rag_pipeline(query: str, video_ids: list[str] = None):
                 
                 final_evidence.append(evidence_item)
 
-    # 4. Parallel VLM
+    # 4. Parallel VLM (now using Gemini instead of OpenRouter)
     metrics["num_frames_retrieved"] = len(vlm_tasks)
+    print(f"[RAG] Running VLM on {len(vlm_tasks)} frames with {VLM_WORKERS} workers...")
     if vlm_tasks:
         with ThreadPoolExecutor(max_workers=VLM_WORKERS) as executor:
             futures = {executor.submit(describe_frame_with_vlm, task[0], task[1]): task[2] for task in vlm_tasks}
@@ -354,7 +410,7 @@ def run_full_rag_pipeline(query: str, video_ids: list[str] = None):
         {"role": "user", "content": f"Evidence:\n{context_str}\n\nQuestion: {query}"}
     ]
     print(f"[RAG] Final evidence count: {len(final_evidence)}")
-    answer = call_openrouter(messages, ANSWER_MODEL, temperature=0.3)
+    answer = call_gemini_llm(messages, ANSWER_MODEL, temperature=0.3)
     
     # =====================================================================
     # POPULARITY RE-RANKING  (additive step — runs AFTER everything else)

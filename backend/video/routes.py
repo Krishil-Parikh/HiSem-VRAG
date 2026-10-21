@@ -295,7 +295,7 @@ async def get_frame(video_id: str, topic_id: int, filename: str):
     if not frame_path.exists():
         # Try implementation dataset
         # Implementation folder structure: frames/{video_id}/topic_{idx}/{filename}
-        implementation_frame = Path(r"C:\Users\krish\OneDrive\Desktop\VRAG\Implementation\mini_dataset_youcook2\frames") / video_id / topic_str / filename
+        implementation_frame = IMPLEMENTATION_MEMORY.parent / "frames" / video_id / topic_str / filename
         if implementation_frame.exists():
             frame_path = implementation_frame
             
@@ -371,7 +371,7 @@ async def stream_video(video_id: str):
         if upload_path.exists():
             return FileResponse(upload_path)
             
-    dataset_path = Path(r"C:\Users\krish\OneDrive\Desktop\VRAG\Implementation\mini_dataset_youcook2\raw_full_videos") / f"{video_id}.mp4"
+    dataset_path = IMPLEMENTATION_MEMORY.parent / "raw_full_videos" / f"{video_id}.mp4"
     if dataset_path.exists():
         return FileResponse(dataset_path)
         

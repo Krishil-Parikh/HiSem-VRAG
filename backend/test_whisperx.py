@@ -1,4 +1,5 @@
-"""Test transcription"""
+"""Test transcription. Usage: python test_whisperx.py path/to/audio.wav"""
+import sys
 import whisperx
 import torch
 
@@ -9,7 +10,9 @@ def _patch(*a, **kw):
     return _orig(*a, **kw)
 torch.load = _patch
 
-audio_path = r'C:\Users\krish\OneDrive\Desktop\VRAG\backend\video_memory\5b5b23d2_videoplayback\audio.wav'
+if len(sys.argv) != 2:
+    sys.exit('Usage: python test_whisperx.py path/to/audio.wav')
+audio_path = sys.argv[1]
 
 print('Loading model...')
 model = whisperx.load_model('large-v3', device='cuda', compute_type='float16', language='en', vad_method='silero')
