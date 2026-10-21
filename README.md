@@ -15,6 +15,20 @@ Department of Artificial Intelligence and Machine Learning, Dwarkadas J. Sanghvi
 
 > All figures below are animated SVGs that replay on a loop. They are regenerated from the same data as the figures in the paper.
 
+**Figure index**
+
+| Paper figure | Animated version | Where it appears |
+|---|---|---|
+| Fig. 1, offline pipeline | `docs/assets/fig1_offline_pipeline.svg` | [Section 2.1](#21-offline-stage-building-the-hierarchical-memory) |
+| Fig. 2, query-time pipeline | `docs/assets/fig2_query_pipeline.svg` | [Section 2.2](#22-online-stage-query-time-hierarchical-retrieval) |
+| Fig. 3, keyframe selection | `docs/assets/fig3_keyframe_selection.svg` | [Section 2.2](#22-online-stage-query-time-hierarchical-retrieval) |
+| Fig. 4, preprocessing funnel | `docs/assets/fig4_pipeline_funnel.svg` | [Section 3](#3-experimental-setup) |
+| Fig. 5, sensitivity analysis | `docs/assets/fig5_sensitivity.svg` | [Section 4.4](#44-sensitivity-analysis) |
+| Fig. 6, ablation comparison | `docs/assets/fig6_ablation.svg` | [Section 4.3](#43-ablation-study) |
+| Fig. 7, latency distribution | `docs/assets/fig7_latency.svg` | [Section 4.5](#45-latency) |
+| Main retrieval results (not a numbered figure) | `docs/assets/fig8_main_results.svg` | [Section 4.1](#41-main-retrieval-results) |
+| End-to-end QA quality (chart of the QA table) | `docs/assets/fig9_qa_quality.svg` | [Section 4.6](#46-end-to-end-question-answering) |
+
 ## Contents
 
 1. [Why hierarchical retrieval](#1-why-hierarchical-retrieval)
