@@ -12,6 +12,7 @@ Step-by-step instructions for reproducing the pipeline, the evaluation and the a
 6. [Online retrieval, evaluation and ablations](#6-online-retrieval-evaluation-and-ablations)
 7. [Demo web application](#7-demo-web-application)
 8. [Troubleshooting](#8-troubleshooting)
+9. [Reproducibility notes](#9-reproducibility-notes)
 
 All commands for the research pipeline are run **from the `Implementation/` folder**. Every script resolves its input and output folders relative to its own location, so the working directory matters less than keeping the scripts together.
 
@@ -314,3 +315,19 @@ Copy or move those three folders from `Implementation/` into `Implementation/min
 | `ffmpeg` not found | Install ffmpeg and make sure it is on your `PATH`. |
 | Many downloads fail in phase 1.1 | Videos removed from YouTube cannot be recovered. Update `yt-dlp` (`pip install -U yt-dlp`) if downloads fail for every video. |
 | cuDNN or CUDA DLL errors on Windows in phase 1.2 | The script adds the `nvidia` libraries bundled with your venv to `PATH`. Make sure the venv contains the CUDA runtime wheels that came with PyTorch. |
+
+---
+
+## 9. Reproducibility notes
+
+Re-running the pipeline will give numbers close to, but not necessarily identical to, those in the paper. The main reasons:
+
+- **Query sets are not included.** The 1,103-query evaluation set and the 427 human-verified QA pairs are not part of this repository. Phase 6 and `ablation_query_generator.py` generate fresh pseudo-queries, and phase 7 generates fresh QA pairs that you review yourself, so absolute scores will differ from the paper's.
+- **LLM output is not deterministic.** Query decomposition (temperature 0.2), VLM captions (0.3), answer generation (0.35) and pseudo-query generation (0.7) all go through hosted models. Different runs, providers and model versions can give different text. VLM captions are cached per frame under `video_memory/<video_id>/vlm_cache/`, so a second run reuses them.
+- **Model versions change.** OpenRouter model identifiers and the models behind them are updated over time. Record the identifiers you used (`VRAG_LLM_MODEL`, `VRAG_VLM_MODEL`, `VRAG_JUDGE_MODEL`) alongside your results.
+- **Sampling is seeded where it is in your control.** The query samplers in `ablation_query_generator.py` default to seed 42, so `--queries N` selects the same subset for the same query file.
+- **Retrieval itself is exact.** The global index is a flat inner-product FAISS index, so for a fixed set of embeddings the retrieved topics and scenes are deterministic.
+- **Latency depends on your setup.** End-to-end latency includes network round trips to the API provider. It will vary with your connection, the provider's load and your GPU for the local models.
+- **Library versions are pinned** in `requirements.txt`. Using different versions of PyTorch, WhisperX or transformers can change ASR output and embeddings slightly.
+
+When you report results from a re-run, state the number of videos that survived preprocessing, the models you used and the date, since all three affect the outcome.
